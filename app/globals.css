@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #f2e6d8;
+}
+
+@layer base {
+  * {
+    @apply border-gold/10;
+  }
+
+  body {
+    @apply bg-espresso text-parchment;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
