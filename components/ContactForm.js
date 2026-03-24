@@ -4,12 +4,68 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+const initialFormState = {
+  email: "",
+  message: "",
+  name: ""
+};
 
-  const handleSubmit = (event) => {
+export default function ContactForm() {
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState({
+    message: "",
+    tone: "idle"
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setStatus({
+      message: "",
+      tone: "idle"
+    });
+
+    try {
+      const response = await fetch("/api/contact", {
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.message || "Unable to send your message right now.");
+      }
+
+      setFormData(initialFormState);
+      setStatus({
+        message: "Message sent successfully.",
+        tone: "success"
+      });
+    } catch (error) {
+      setStatus({
+        message:
+          error instanceof Error
+            ? error.message
+            : "Unable to send your message right now.",
+        tone: "error"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -21,8 +77,11 @@ export default function ContactForm() {
             <input
               type="text"
               name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Your name"
               className="input-executive"
+              required
             />
           </label>
           <label className="space-y-2 text-sm text-muted">
@@ -30,8 +89,11 @@ export default function ContactForm() {
             <input
               type="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="your@email.com"
               className="input-executive"
+              required
             />
           </label>
         </div>
@@ -40,21 +102,24 @@ export default function ContactForm() {
           <textarea
             name="message"
             rows="5"
+            value={formData.message}
+            onChange={handleChange}
             placeholder="Write a short message"
             className="input-executive min-h-36 resize-y"
+            required
           />
         </label>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Button as="button" type="submit">
-            Send Message
+        <div className="flex flex-col gap-3">
+          <Button as="button" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
           <p
-            className={`text-sm text-accent transition duration-300 ${
-              submitted ? "opacity-100" : "opacity-0"
-            }`}
+            className={`text-sm ${
+              status.tone === "error" ? "text-red-500" : "text-accent"
+            } ${status.message ? "opacity-100" : "opacity-0"}`}
             aria-live="polite"
           >
-            Demo form submitted. Backend can be connected later.
+            {status.message || "Status message"}
           </p>
         </div>
       </form>

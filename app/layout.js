@@ -41,11 +41,11 @@ const themeInitScript = `
 `;
 
 export const metadata = {
-  title: "Sudip Paul | Structural Engineering Portfolio",
+  title: "Dr. Sudip Paul | Structural Engineering Portfolio",
   description:
-    "Executive portfolio of Sudip Paul, General Manager - Structural Engineering at Engineers India Limited.",
+    "Executive portfolio of Dr. Sudip Paul, General Manager – Structural Engineering at Engineers India Limited.",
   keywords: [
-    "Sudip Paul",
+    "Dr. Sudip Paul",
     "Structural Engineering",
     "Civil Engineering",
     "Engineers India Limited",

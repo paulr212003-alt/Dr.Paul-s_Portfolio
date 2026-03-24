@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 py-4 sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-[80] px-4 py-4 sm:px-6 lg:px-8">
       <nav
         className={`mx-auto flex w-full max-w-7xl items-center justify-between rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:px-6 ${
           scrolled
@@ -36,7 +36,7 @@ export default function Navbar() {
       >
         <a href="#hero" className="min-w-0">
           <span className="block truncate font-heading text-lg text-text sm:text-xl">
-            Sudip Paul
+            Dr. Sudip Paul
           </span>
           <span className="hidden text-[11px] uppercase tracking-[0.28em] text-accent/80 sm:block">
             Structural Engineering

@@ -9,7 +9,7 @@ export default function Button({
 }) {
   const Component = as;
   const baseStyles =
-    "inline-flex items-center justify-center rounded-full border font-semibold uppercase transition duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/45 focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+    "inline-flex items-center justify-center rounded-full border font-semibold uppercase transition duration-300 ease-out disabled:pointer-events-none disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/45 focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
   const sizeStyles =
     size === "sm"
       ? "px-4 py-2 text-[11px] tracking-[0.22em]"
