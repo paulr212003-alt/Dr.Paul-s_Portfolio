@@ -1,4 +1,11 @@
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import {
+  DEFAULT_THEME,
+  THEME_IDS,
+  THEME_STORAGE_KEY
+} from "@/lib/themes";
 import "./globals.css";
 import "@/styles/theme.css";
 
@@ -8,11 +15,30 @@ const playfair = Playfair_Display({
   display: "swap"
 });
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   display: "swap"
 });
+
+const themeInitScript = `
+  (function () {
+    var storageKey = "${THEME_STORAGE_KEY}";
+    var fallbackTheme = "${DEFAULT_THEME}";
+    var validThemes = ${JSON.stringify(THEME_IDS)};
+    var darkThemes = ["nebula-noir", "midnight-blue"];
+
+    try {
+      var storedTheme = window.localStorage.getItem(storageKey);
+      var theme = validThemes.indexOf(storedTheme) >= 0 ? storedTheme : fallbackTheme;
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.style.colorScheme = darkThemes.indexOf(theme) >= 0 ? "dark" : "light";
+    } catch (error) {
+      document.documentElement.setAttribute("data-theme", fallbackTheme);
+      document.documentElement.style.colorScheme = "light";
+    }
+  })();
+`;
 
 export const metadata = {
   title: "Sudip Paul | Structural Engineering Portfolio",
@@ -29,11 +55,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${manrope.variable} bg-espresso font-body text-parchment antialiased`}
+        className={`${playfair.variable} ${inter.variable} bg-bg font-body text-text antialiased`}
       >
-        {children}
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

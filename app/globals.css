@@ -8,27 +8,35 @@ html {
 
 body {
   min-height: 100vh;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.3);
-  color: #f2e6d8;
+  background: rgb(var(--color-accent) / 0.22);
+  color: rgb(var(--color-text));
 }
 
 @layer base {
   * {
-    @apply border-gold/10;
+    @apply border-border/30;
   }
 
   body {
-    @apply bg-espresso text-parchment;
+    @apply bg-bg text-text;
   }
 
   a,
   button,
   input,
-  textarea {
-    @apply transition-all duration-300;
+  textarea,
+  select {
+    @apply transition-all duration-200;
+  }
+
+  button,
+  [role="button"] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/45 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
   }
 }
 

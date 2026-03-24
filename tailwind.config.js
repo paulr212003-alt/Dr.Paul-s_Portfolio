@@ -3,42 +3,40 @@ module.exports = {
   content: [
     "./app/**/*.{js,jsx,mdx}",
     "./components/**/*.{js,jsx,mdx}",
+    "./lib/**/*.{js,jsx,mdx}",
     "./styles/**/*.css"
   ],
   theme: {
     extend: {
       colors: {
-        espresso: "#2B1B12",
-        chestnut: "#3E2723",
-        gold: "#D4AF37",
-        glow: "#C68642",
-        parchment: "#F2E6D8",
-        mist: "#D8C9BB"
+        bg: "rgb(var(--color-bg) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        "surface-soft": "rgb(var(--color-surface-soft) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        text: "rgb(var(--color-text) / <alpha-value>)",
+        muted: "rgb(var(--color-muted) / <alpha-value>)",
+        border: "rgb(var(--color-border) / <alpha-value>)",
+        "accent-contrast": "rgb(var(--color-accent-contrast) / <alpha-value>)"
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "serif"],
-        body: ["var(--font-manrope)", "sans-serif"]
+        body: ["var(--font-inter)", "sans-serif"]
       },
       boxShadow: {
-        gold: "0 12px 40px rgba(212, 175, 55, 0.18)",
-        glow: "0 0 0 1px rgba(212, 175, 55, 0.18), 0 0 24px rgba(198, 134, 66, 0.22)"
-      },
-      backgroundImage: {
-        "executive-radial": "radial-gradient(circle at top, rgba(212, 175, 55, 0.10), transparent 38%), radial-gradient(circle at 80% 20%, rgba(198, 134, 66, 0.14), transparent 22%)"
+        soft: "0 20px 50px rgb(var(--shadow-rgb) / 0.08)",
+        float: "0 10px 26px rgb(var(--shadow-rgb) / 0.06)",
+        glow:
+          "0 0 0 1px rgb(var(--color-accent) / 0.16), 0 12px 30px rgb(var(--glow-rgb) / 0.18)"
       },
       keyframes: {
         shimmer: {
           "0%": { transform: "scaleX(0)", opacity: "0.35" },
           "100%": { transform: "scaleX(1)", opacity: "1" }
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-6px)" }
         }
       },
       animation: {
-        shimmer: "shimmer 700ms ease-out forwards",
-        float: "float 7s ease-in-out infinite"
+        shimmer: "shimmer 700ms ease-out forwards"
       }
     }
   },

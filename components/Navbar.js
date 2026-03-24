@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Button from "@/components/Button";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -26,47 +28,47 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 py-4 sm:px-6 lg:px-8">
       <nav
-        className={`mx-auto flex w-full max-w-7xl items-center justify-between rounded-full border px-4 py-3 backdrop-blur-xl transition duration-300 sm:px-6 ${
+        className={`mx-auto flex w-full max-w-7xl items-center justify-between rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:px-6 ${
           scrolled
-            ? "border-gold/25 bg-[#26160f]/88 shadow-glow"
-            : "border-gold/15 bg-[#26160f]/65"
+            ? "border-border/80 bg-surface/94 shadow-soft"
+            : "border-border/60 bg-surface/86"
         }`}
       >
         <a href="#hero" className="min-w-0">
-          <span className="block truncate font-heading text-lg text-parchment sm:text-xl">
+          <span className="block truncate font-heading text-lg text-text sm:text-xl">
             Sudip Paul
           </span>
-          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-gold/75 sm:block">
+          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-accent/80 sm:block">
             Structural Engineering
           </span>
         </a>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-xs uppercase tracking-[0.26em] text-mist/80 hover:text-gold"
+              className="text-xs uppercase tracking-[0.22em] text-muted hover:text-accent"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-flex items-center rounded-full border border-gold/25 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-gold hover:shadow-glow"
-        >
-          Contact
-        </a>
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <ThemeSwitcher />
+          <Button href="#contact" variant="secondary" size="sm">
+            Contact
+          </Button>
+        </div>
       </nav>
 
-      <div className="mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-gold/10 bg-[#26160f]/70 px-3 py-2 backdrop-blur lg:hidden">
+      <div className="mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-border/60 bg-surface/78 px-3 py-2 backdrop-blur xl:hidden">
         {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
-            className="whitespace-nowrap rounded-full border border-transparent px-3 py-2 text-[11px] uppercase tracking-[0.24em] text-mist/80 hover:border-gold/20 hover:text-gold"
+            className="whitespace-nowrap rounded-full border border-transparent px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-muted hover:border-accent/25 hover:text-accent"
           >
             {item.label}
           </a>

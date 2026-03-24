@@ -16,7 +16,7 @@ export default function ContactForm() {
     <Card className="p-6 sm:p-8">
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="grid gap-5 sm:grid-cols-2">
-          <label className="space-y-2 text-sm text-mist/80">
+          <label className="space-y-2 text-sm text-muted">
             <span>Name</span>
             <input
               type="text"
@@ -25,7 +25,7 @@ export default function ContactForm() {
               className="input-executive"
             />
           </label>
-          <label className="space-y-2 text-sm text-mist/80">
+          <label className="space-y-2 text-sm text-muted">
             <span>Email</span>
             <input
               type="email"
@@ -35,7 +35,7 @@ export default function ContactForm() {
             />
           </label>
         </div>
-        <label className="space-y-2 text-sm text-mist/80">
+        <label className="space-y-2 text-sm text-muted">
           <span>Message</span>
           <textarea
             name="message"
@@ -49,7 +49,7 @@ export default function ContactForm() {
             Send Message
           </Button>
           <p
-            className={`text-sm text-gold/85 transition duration-300 ${
+            className={`text-sm text-accent transition duration-300 ${
               submitted ? "opacity-100" : "opacity-0"
             }`}
             aria-live="polite"

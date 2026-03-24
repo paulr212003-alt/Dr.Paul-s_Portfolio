@@ -13,15 +13,15 @@ export default function Section({
     >
       <div className="mb-10 max-w-3xl sm:mb-14">
         {eyebrow ? (
-          <p className="text-xs uppercase tracking-[0.36em] text-gold/75">
+          <p className="text-xs uppercase tracking-[0.32em] text-accent/80">
             {eyebrow}
           </p>
         ) : null}
-        <h2 className="section-heading mt-4 font-heading text-3xl leading-tight text-parchment sm:text-4xl">
+        <h2 className="section-heading mt-4 font-heading text-3xl leading-tight text-text sm:text-4xl">
           {title}
         </h2>
         {description ? (
-          <p className="mt-5 max-w-2xl text-base leading-8 text-mist/82">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
             {description}
           </p>
         ) : null}
