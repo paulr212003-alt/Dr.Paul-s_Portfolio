@@ -25,27 +25,6 @@ If port `3000` is already occupied on your machine, Next.js will automatically u
 npm run build
 ```
 
-## Contact form environment variables
-
-Create a `.env.local` file in the project root and copy the values from `.env.example`.
-
-Example:
-
-```bash
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
-CONTACT_FROM_EMAIL=your-email@gmail.com
-CONTACT_TO_EMAIL=sudip.rishabh@gmail.com
-```
-
-For Gmail:
-
-1. Turn on 2-Step Verification for the sending Gmail account.
-2. Generate a Google App Password.
-3. Use that App Password as `SMTP_PASS`.
-
 ## Push to GitHub
 
 ```bash

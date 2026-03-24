@@ -26,13 +26,12 @@ const themeInitScript = `
     var storageKey = "${THEME_STORAGE_KEY}";
     var fallbackTheme = "${DEFAULT_THEME}";
     var validThemes = ${JSON.stringify(THEME_IDS)};
-    var darkThemes = ["nebula-noir", "midnight-blue"];
 
     try {
       var storedTheme = window.localStorage.getItem(storageKey);
       var theme = validThemes.indexOf(storedTheme) >= 0 ? storedTheme : fallbackTheme;
       document.documentElement.setAttribute("data-theme", theme);
-      document.documentElement.style.colorScheme = darkThemes.indexOf(theme) >= 0 ? "dark" : "light";
+      document.documentElement.style.colorScheme = "light";
     } catch (error) {
       document.documentElement.setAttribute("data-theme", fallbackTheme);
       document.documentElement.style.colorScheme = "light";
@@ -43,7 +42,7 @@ const themeInitScript = `
 export const metadata = {
   title: "Dr. Sudip Paul | Structural Engineering Portfolio",
   description:
-    "Executive portfolio of Dr. Sudip Paul, General Manager – Structural Engineering at Engineers India Limited.",
+    "Executive portfolio of Dr. Sudip Paul, General Manager - Structural Engineering at Engineers India Limited.",
   keywords: [
     "Dr. Sudip Paul",
     "Structural Engineering",

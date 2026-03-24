@@ -13,20 +13,6 @@
   --shadow-rgb: 111 78 55;
 }
 
-[data-theme="nebula-noir"] {
-  --color-bg: 15 11 26;
-  --color-surface: 24 19 38;
-  --color-surface-soft: 34 28 51;
-  --color-accent: 124 58 237;
-  --color-secondary: 95 78 140;
-  --color-text: 237 233 254;
-  --color-muted: 187 180 214;
-  --color-border: 88 72 128;
-  --color-accent-contrast: 245 243 255;
-  --glow-rgb: 124 58 237;
-  --shadow-rgb: 10 8 22;
-}
-
 [data-theme="emerald-executive"] {
   --color-bg: 248 250 249;
   --color-surface: 255 255 255;
@@ -39,20 +25,6 @@
   --color-accent-contrast: 248 250 249;
   --glow-rgb: 4 120 87;
   --shadow-rgb: 44 83 67;
-}
-
-[data-theme="midnight-blue"] {
-  --color-bg: 11 28 44;
-  --color-surface: 18 38 58;
-  --color-surface-soft: 27 49 73;
-  --color-accent: 37 99 235;
-  --color-secondary: 82 112 153;
-  --color-text: 229 231 235;
-  --color-muted: 166 178 194;
-  --color-border: 74 101 131;
-  --color-accent-contrast: 243 244 246;
-  --glow-rgb: 37 99 235;
-  --shadow-rgb: 4 17 30;
 }
 
 [data-theme="ivory-prestige"] {

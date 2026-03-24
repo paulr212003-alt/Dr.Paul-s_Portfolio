@@ -1,9 +1,10 @@
 import Button from "@/components/Button";
 import Card from "@/components/Card";
-import ContactForm from "@/components/ContactForm";
 import Navbar from "@/components/Navbar";
+import ProjectMap from "@/components/ProjectMap";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import { getProjectsByCategory } from "@/data/projects";
 
 const stats = [
   { label: "Experience", value: "27+ Years" },
@@ -13,7 +14,7 @@ const stats = [
 
 const experienceItems = [
   {
-    role: "General Manager – Structural Engineering",
+    role: "General Manager - Structural Engineering",
     company: "Engineers India Limited",
     period: "Present",
     description:
@@ -55,24 +56,6 @@ const expertiseItems = [
     title: "Structural Rehabilitation",
     description:
       "Retrofit, repair, and strengthening strategies for existing concrete and steel assets."
-  }
-];
-
-const projectItems = [
-  {
-    title: "Hydrocarbon & Refinery Programs",
-    description:
-      "Reserved for flagship engineering programs spanning design leadership, execution planning, and interdisciplinary coordination."
-  },
-  {
-    title: "Strategic Industrial Infrastructure",
-    description:
-      "Prepared for future case studies covering public-sector and nationally significant engineering work."
-  },
-  {
-    title: "Offshore & Specialized Structures",
-    description:
-      "Structured to showcase offshore analysis, rehabilitation, and safety-critical structural interventions."
   }
 ];
 
@@ -144,6 +127,9 @@ const contactActions = [
   }
 ];
 
+const indiaProjects = getProjectsByCategory("india");
+const internationalProjects = getProjectsByCategory("international");
+
 export default function HomePage() {
   return (
     <main className="page-shell relative overflow-x-clip">
@@ -164,7 +150,7 @@ export default function HomePage() {
                 Dr. Sudip Paul
               </p>
               <h1 className="max-w-3xl text-balance font-heading text-4xl leading-tight text-text sm:text-5xl lg:text-6xl">
-                General Manager – Structural Engineering
+                General Manager - Structural Engineering
               </h1>
               <p className="text-base font-semibold uppercase tracking-[0.28em] text-accent/80 sm:text-lg">
                 Industrial & Offshore Infrastructure
@@ -178,8 +164,8 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button href="#experience">View Experience</Button>
-              <Button href="#publications" variant="secondary">
-                View Publications
+              <Button href="#projects" variant="secondary">
+                View Projects
               </Button>
             </div>
 
@@ -368,30 +354,29 @@ export default function HomePage() {
       <Section
         id="projects"
         eyebrow="Projects"
-        title="Project placeholders arranged for future case-study expansion."
-        description="The structure stays intentionally simple so detailed project narratives can be added without redesigning the page."
+        title="Projects by geography."
+        description="A static SVG-driven project map experience with separate views for India and international work."
       >
-        <div className="grid gap-5 lg:grid-cols-3">
-          {projectItems.map((item, index) => (
-            <Reveal key={item.title} delay={`${index * 0.08}s`}>
-              <Card className="group h-full p-6">
-                <div className="flex h-full flex-col">
-                  <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
-                    Project {index + 1}
-                  </p>
-                  <h3 className="mt-4 font-heading text-2xl text-text transition-colors duration-300 group-hover:text-accent">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 flex-1 text-sm leading-7 text-muted">
-                    {item.description}
-                  </p>
-                  <div className="mt-6 inline-flex w-fit rounded-full border border-accent/20 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-accent">
-                    Placeholder Ready
-                  </div>
-                </div>
-              </Card>
-            </Reveal>
-          ))}
+        <div className="grid gap-5 lg:grid-cols-2">
+          <Reveal>
+            <ProjectMap
+              title="India Projects"
+              description="A focused view of representative assignments located across India."
+              mapAlt="Stylized map of India"
+              mapSrc="/maps/india.svg"
+              projects={indiaProjects}
+            />
+          </Reveal>
+
+          <Reveal delay="0.08s">
+            <ProjectMap
+              title="International Projects"
+              description="Representative international work shown on a simplified world map."
+              mapAlt="Stylized world map"
+              mapSrc="/maps/world.svg"
+              projects={internationalProjects}
+            />
+          </Reveal>
         </div>
       </Section>
 
@@ -434,58 +419,38 @@ export default function HomePage() {
       <Section
         id="contact"
         eyebrow="Contact"
-        title="Connect directly or send a message."
-        description="The direct actions below are paired with a backend-powered contact form that can be deployed on Vercel with SMTP credentials."
+        title="Connect directly."
+        description="The direct contact buttons below keep the experience simple and reliable."
       >
-        <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
-          <Reveal>
-            <Card className="h-full p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-accent/80">
-                Direct Contact
-              </p>
-              <p className="mt-4 text-sm leading-7 text-muted">
-                Reach Dr. Sudip Paul through the options below, or use the form
-                to send a message directly to his inbox.
-              </p>
+        <Reveal>
+          <Card className="p-6 sm:p-8">
+            <p className="text-sm leading-7 text-muted">
+              Reach Dr. Sudip Paul through LinkedIn, email, or phone using the
+              direct actions below.
+            </p>
 
-              <div className="mt-8 grid gap-3">
-                {contactActions.map((item) => {
-                  const Icon = item.icon;
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {contactActions.map((item) => {
+                const Icon = item.icon;
 
-                  return (
-                    <Button
-                      key={item.label}
-                      href={item.href}
-                      variant="secondary"
-                      size="sm"
-                      className="justify-start gap-2 normal-case tracking-[0.08em]"
-                      target={item.target}
-                      rel={item.target ? "noreferrer" : undefined}
-                    >
-                      <Icon />
-                      <span>{item.label}</span>
-                    </Button>
-                  );
-                })}
-              </div>
-
-              <div className="mt-8 rounded-[1.5rem] border border-border/70 bg-surface-soft/60 p-5">
-                <p className="text-sm font-semibold text-text">
-                  Message routing
-                </p>
-                <p className="mt-2 text-sm leading-7 text-muted">
-                  Form submissions are configured to send Name, Email, and
-                  Message details to the portfolio contact inbox using the API
-                  route.
-                </p>
-              </div>
-            </Card>
-          </Reveal>
-
-          <Reveal delay="0.08s">
-            <ContactForm />
-          </Reveal>
-        </div>
+                return (
+                  <Button
+                    key={item.label}
+                    href={item.href}
+                    variant="secondary"
+                    size="sm"
+                    className="justify-start gap-2 normal-case tracking-[0.08em]"
+                    target={item.target}
+                    rel={item.target ? "noreferrer" : undefined}
+                  >
+                    <Icon />
+                    <span>{item.label}</span>
+                  </Button>
+                );
+              })}
+            </div>
+          </Card>
+        </Reveal>
       </Section>
     </main>
   );

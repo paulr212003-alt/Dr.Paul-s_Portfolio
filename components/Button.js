@@ -18,7 +18,7 @@ export default function Button({
     variant === "secondary"
       ? "border-border/90 bg-surface text-text shadow-soft hover:-translate-y-0.5 hover:scale-[1.01] hover:border-accent/55 hover:text-accent hover:shadow-glow"
       : "border-accent bg-accent text-accent-contrast shadow-soft hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-glow";
-  const componentProps = Component === "a" && href ? { href } : {};
+  const componentProps = href ? { href } : {};
 
   return (
     <Component
