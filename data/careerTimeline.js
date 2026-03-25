@@ -212,6 +212,16 @@ export const careerProjects = [
     detailsHref: "/papers/pdf3.pdf"
   },
   {
+    yearRange: "2015-2016",
+    client: "BPCL",
+    shortTag: "Blast Control Rooms",
+    projectType: "Safety Infra",
+    rolePeriod: "2015-2020",
+    roleTitle: "Senior Group Leader",
+    organization: "EIL",
+    detailsHref: "/papers/pdf6.pdf"
+  },
+  {
     yearRange: "2017-2018",
     client: "BORL",
     shortTag: "Hydrodesulfurization",
@@ -232,16 +242,6 @@ export const careerProjects = [
     detailsHref: "/papers/pdf5.pdf"
   },
   {
-    yearRange: "2015-2016",
-    client: "BPCL",
-    shortTag: "Blast Control Rooms",
-    projectType: "Safety Infra",
-    rolePeriod: "2015-2020",
-    roleTitle: "Senior Group Leader",
-    organization: "EIL",
-    detailsHref: "/papers/pdf6.pdf"
-  },
-  {
     yearRange: "2012-2014",
     client: "BPCL",
     shortTag: "Refinery Expansion",
@@ -250,6 +250,16 @@ export const careerProjects = [
     roleTitle: "Group Leader / Sr GL",
     organization: "EIL",
     detailsHref: "/papers/pdf7.pdf"
+  },
+  {
+    yearRange: "2012",
+    client: "GASCO UAE",
+    shortTag: "Pipeline Systems",
+    projectType: "PMC",
+    rolePeriod: "2012-2014",
+    roleTitle: "Group Leader / Sr GL",
+    organization: "EIL",
+    detailsHref: "/papers/pdf10.pdf"
   },
   {
     yearRange: "2011-2013",
@@ -270,16 +280,6 @@ export const careerProjects = [
     roleTitle: "Lead Engineer",
     organization: "EIL",
     detailsHref: "/papers/pdf9.pdf"
-  },
-  {
-    yearRange: "2012",
-    client: "GASCO UAE",
-    shortTag: "Pipeline Systems",
-    projectType: "PMC",
-    rolePeriod: "2012-2014",
-    roleTitle: "Group Leader / Sr GL",
-    organization: "EIL",
-    detailsHref: "/papers/pdf10.pdf"
   },
   {
     yearRange: "2006-2007",
@@ -350,6 +350,16 @@ export const careerProjects = [
     roleTitle: "Lead/Functional Engineer",
     organization: "Multiple Clients",
     detailsHref: "/papers/pdf17.pdf"
+  },
+  {
+    yearRange: "1994-1996",
+    client: "DCL",
+    shortTag: "Design Engineering",
+    projectType: "Career Start",
+    rolePeriod: "1994-1996",
+    roleTitle: "Design Engineer",
+    organization: "DCL",
+    detailsHref: "/papers/pdf18.pdf"
   }
 ];
 

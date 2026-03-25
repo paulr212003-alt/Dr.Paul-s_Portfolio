@@ -330,15 +330,26 @@ body {
   background: linear-gradient(
     180deg,
     rgb(var(--color-secondary) / 0),
-    rgb(var(--color-secondary) / 0.52) 24%,
-    rgb(var(--color-secondary) / 0.52) 76%,
+    rgb(var(--color-secondary) / 0.66) 24%,
+    rgb(var(--color-secondary) / 0.66) 76%,
     rgb(var(--color-secondary) / 0)
   );
 }
 
 .career-axis {
-  background: rgb(var(--color-secondary) / 0.5);
-  box-shadow: 0 0 12px rgb(var(--shadow-rgb) / 0.08);
+  background: rgb(var(--color-secondary) / 0.68);
+  box-shadow: 0 0 12px rgb(var(--shadow-rgb) / 0.1);
+}
+
+.career-bracket,
+.career-bracket-line {
+  border-color: rgb(var(--color-secondary) / 0.45);
+  background: rgb(var(--color-secondary) / 0.6);
+  box-shadow: 0 0 10px rgb(var(--shadow-rgb) / 0.06);
+}
+
+.career-bracket {
+  border-radius: 1.1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

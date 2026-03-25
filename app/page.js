@@ -72,44 +72,32 @@ const academicsItems = [
 
 const affiliationItems = [
   {
-    name: "Engineers India Limited",
-    label: "Executive Leadership",
-    description:
-      "Driving structural engineering governance, multidisciplinary coordination, and large-scale project execution across hydrocarbon, refinery, and infrastructure domains. Leading high-impact engineering initiatives across FEED, EPCM, and detailed design phases for nationally significant projects."
-  },
-  {
     name: "ISRO",
-    label: "Strategic Contribution",
     description:
       "Contributed to critical infrastructure development supporting India's space missions, including structural engineering involvement in launch facility systems. Work demanded high precision, reliability, and adherence to stringent safety and performance standards associated with aerospace infrastructure."
   },
   {
     name: "The Institution of Engineers (India)",
-    label: "Professional Fellowship",
     description:
       "Recognized as a Fellow of India's premier professional engineering body, reflecting sustained contributions to the engineering profession, technical excellence, and leadership within the civil and structural engineering community."
   },
   {
     name: "IIT Kanpur Building Works Committee",
-    label: "Academic Infrastructure Governance",
     description:
       "Active member contributing to planning, evaluation, and oversight of institutional infrastructure development at IIT Kanpur, ensuring engineering integrity, safety, and alignment with long-term academic and research needs."
   },
   {
     name: "Oil Industry Safety Directorate (OISD)",
-    label: "Sector Safety Interface",
     description:
       "Associated with safety standardization for hydrocarbon infrastructure, particularly in control room design and blast-resistant structures. Contributing to frameworks that enhance operational safety in high-risk industrial environments."
   },
   {
     name: "Indian Society for Wind Engineering (ISWE)",
-    label: "Technical Community Engagement",
     description:
       "Member of a specialized body focused on wind effects on structures, contributing to the understanding and application of aerodynamic and environmental loading considerations in structural design."
   },
   {
     name: "Bureau of Indian Standards (BIS)",
-    label: "Standards Development",
     description:
       "Actively involved in the development and refinement of Indian Standards, particularly in earthquake engineering and structural safety. Contribution supports national-level codification and engineering best practices."
   }
@@ -187,46 +175,6 @@ const indiaProjects = getProjectsByCategory("india");
 const internationalProjects = getProjectsByCategory("international");
 
 export default function HomePage() {
-  const [isStructuralMode, setIsStructuralMode] = useState(false);
-
-  const structuralModeItems = [
-    {
-      label: "Projects",
-      href: "#projects",
-      description: "Browse geography-linked assignments."
-    },
-    {
-      label: "Academics",
-      href: "#academics",
-      description: "Review institutions, degrees, and distinctions."
-    },
-    {
-      label: "Affiliations",
-      href: "#affiliations",
-      description: "See institutional and sector associations."
-    },
-    {
-      label: "Timeline",
-      href: "#experience",
-      description: "Move through the combined role and project timeline."
-    },
-    {
-      label: "Publications",
-      href: "#publications",
-      description: "Open selected papers and publications."
-    },
-    {
-      label: "Expertise",
-      href: "#expertise",
-      description: "Scan focused technical capabilities."
-    },
-    {
-      label: "Contact",
-      href: "#contact",
-      description: "Reach out through direct channels."
-    }
-  ];
-
   return (
     <main className="page-shell relative overflow-x-clip">
       <Navbar />
@@ -236,188 +184,145 @@ export default function HomePage() {
         className="relative mx-auto flex min-h-screen w-full max-w-7xl scroll-mt-24 items-center px-4 pb-16 pt-52 sm:px-6 sm:pt-44 lg:px-8 lg:pt-32"
       >
         <div className="w-full">
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-out ${
-              isStructuralMode
-                ? "pointer-events-none max-h-0 translate-y-3 opacity-0"
-                : "max-h-[2600px] translate-y-0 opacity-100"
-            }`}
-            aria-hidden={isStructuralMode}
-          >
-            <div className="grid w-full gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-              <Reveal className="space-y-7">
-                <div className="flex items-center gap-5">
-                  <div className="relative h-20 w-20 overflow-hidden rounded-full border border-accent/45 bg-surface-soft shadow-soft sm:h-24 sm:w-24">
-                    <Image
-                      src="/profile.png"
-                      alt="Portrait of Dr. Sudip Paul"
-                      fill
-                      sizes="(min-width: 640px) 96px, 80px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="inline-flex items-center rounded-full border border-accent/25 bg-surface px-5 py-2.5 text-[11px] uppercase tracking-[0.28em] text-accent shadow-soft sm:text-xs">
-                      Executive Portfolio
-                    </div>
-                    <p className="text-sm uppercase tracking-[0.28em] text-accent/80 sm:text-base">
-                      Dr. Sudip Paul
-                    </p>
-                  </div>
+          <div className="grid w-full gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <Reveal className="space-y-7">
+              <div className="flex items-center gap-5">
+                <div className="relative h-24 w-24 overflow-hidden rounded-full border border-accent/45 bg-surface-soft shadow-soft sm:h-28 sm:w-28">
+                  <Image
+                    src="/profile.png"
+                    alt="Portrait of Dr. Sudip Paul"
+                    fill
+                    sizes="(min-width: 640px) 112px, 96px"
+                    className="object-cover"
+                  />
                 </div>
+                <div className="space-y-3">
+                  <div className="inline-flex items-center rounded-full border border-accent/25 bg-surface px-5 py-2.5 text-xs uppercase tracking-[0.28em] text-accent shadow-soft sm:px-6 sm:py-3 sm:text-sm">
+                    Executive Portfolio
+                  </div>
+                  <p className="text-base uppercase tracking-[0.28em] text-accent/80 sm:text-lg">
+                    Dr. Sudip Paul
+                  </p>
+                </div>
+              </div>
 
+              <div className="space-y-5">
+                <h1 className="max-w-3xl text-balance font-heading text-[3.05rem] leading-[0.94] text-text sm:text-6xl lg:text-6xl">
+                  General Manager - Structural Engineering
+                </h1>
+                <p className="text-base font-semibold uppercase tracking-[0.28em] text-accent/80 sm:text-lg">
+                  Industrial & Offshore Infrastructure
+                </p>
+                <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
+                  Close to 3 decades of experience in reinforced concrete,
+                  steel structures, offshore platforms, and blast-resistant
+                  infrastructure across large-scale industrial ecosystems.
+                </p>
+              </div>
+
+              <div className="hidden flex-col gap-4 sm:flex-row sm:flex-wrap lg:flex">
+                <Button href="#projects">View Projects</Button>
+                <Button href="#experience" variant="secondary">
+                  View Timeline
+                </Button>
+              </div>
+
+              <div className="flex gap-3 lg:hidden">
+                <HeroIconLink href="#projects" label="Projects" />
+                <HeroIconLink href="#experience" label="Timeline" />
+              </div>
+
+              <Card className="p-5 sm:p-6 lg:hidden">
                 <div className="space-y-5">
-                  <h1 className="max-w-3xl text-balance font-heading text-4xl leading-tight text-text sm:text-5xl lg:text-6xl">
-                    General Manager - Structural Engineering
-                  </h1>
-                  <p className="text-base font-semibold uppercase tracking-[0.28em] text-accent/80 sm:text-lg">
-                    Industrial and Offshore Infrastructure
-                  </p>
-                  <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                    Executive-level structural engineering leadership for
-                    complex industrial, hydrocarbon, and infrastructure programs
-                    across national and international landscapes.
-                  </p>
-                  <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                    He has 3 decades of experience in civil, structural,
-                    refinery, petrochemical, offshore, and industrial
-                    infrastructure engineering.
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                  <Button href="#projects">View Projects</Button>
-                  <Button href="#experience" variant="secondary">
-                    View Timeline
-                  </Button>
-                  <Button
-                    as="button"
-                    type="button"
-                    variant="secondary"
-                    onClick={() => setIsStructuralMode(true)}
-                    aria-pressed={isStructuralMode}
-                  >
-                    Structural Mode
-                  </Button>
-                </div>
-
-                <div className="grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
-                  {stats.map((item) => (
-                    <Card key={item.label} className="p-5">
-                      <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
-                        {item.label}
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-accent/80">
+                        Leadership Profile
                       </p>
-                      <p className="mt-3 text-lg font-semibold text-text">
-                        {item.value}
-                      </p>
-                    </Card>
-                  ))}
-                </div>
-              </Reveal>
-
-              <Reveal delay="0.12s">
-                <Card className="mx-auto max-w-xl p-7 sm:p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.3em] text-accent/80">
-                          Leadership Profile
-                        </p>
-                        <h2 className="mt-3 font-heading text-3xl text-text">
-                          Engineers India Limited
-                        </h2>
-                      </div>
-                      <div className="rounded-full border border-accent/25 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-accent">
-                        FEED / EPCM
-                      </div>
+                      <h2 className="mt-3 font-heading text-3xl text-text">
+                        Engineers India Limited
+                      </h2>
                     </div>
-
-                    <p className="text-base leading-8 text-muted">
-                      Dr. Sudip Paul combines technical depth, project
-                      leadership, and strategic engineering judgment across
-                      reinforced concrete, structural steel, offshore
-                      structures, and rehabilitation programs.
-                    </p>
-
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <ProfileHighlight
-                        label="Academics"
-                        value="IIEST Shibpur, IIT Kanpur, IIT Delhi"
-                      />
-                      <ProfileHighlight
-                        label="Affiliations"
-                        value="ISRO, IEI, BIS, OISD, ISWE"
-                      />
-                      <ProfileHighlight
-                        label="Core Delivery"
-                        value="FEED, EPCM, Design Execution"
-                      />
-                      <ProfileHighlight
-                        label="Technical Focus"
-                        value="Offshore, Blast, Rehabilitation"
-                      />
+                    <div className="rounded-full border border-accent/25 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-accent">
+                      FEED / EPCM
                     </div>
                   </div>
-                </Card>
-              </Reveal>
-            </div>
-          </div>
 
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-out ${
-              isStructuralMode
-                ? "max-h-[2600px] translate-y-0 opacity-100"
-                : "pointer-events-none max-h-0 -translate-y-3 opacity-0"
-            }`}
-            aria-hidden={!isStructuralMode}
-          >
-            <Reveal className="mx-auto max-w-4xl">
-              <Card className="p-5 sm:p-7">
-                <div className="space-y-6">
-                  <div className="space-y-3">
-                    <p className="text-xs uppercase tracking-[0.3em] text-accent/80">
-                      Structural Mode
-                    </p>
-                    <h2 className="font-heading text-3xl text-text sm:text-4xl">
-                      Navigate the portfolio through a structured overview.
-                    </h2>
-                    <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
-                      A compact sectional layout designed for quick scanning
-                      across projects, academics, publications, affiliations,
-                      and leadership credentials.
-                    </p>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {structuralModeItems.map((item) => (
-                      <StructuralModeLink
-                        key={item.label}
-                        href={item.href}
-                        label={item.label}
-                        description={item.description}
-                      />
-                    ))}
-
-                    <StructuralModeButton
-                      label="Toggle OFF"
-                      description="Return to the primary executive hero layout."
-                      onClick={() => setIsStructuralMode(false)}
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <ProfileHighlight
+                      label="Academics"
+                      value="IIEST Shibpur, IIT Kanpur, IIT Delhi"
+                    />
+                    <ProfileHighlight
+                      label="Affiliations"
+                      value="ISRO, IEI, BIS, OISD, ISWE"
+                    />
+                    <ProfileHighlight
+                      label="Core Delivery"
+                      value="FEED, EPCM, Design Execution"
+                    />
+                    <ProfileHighlight
+                      label="Technical Focus"
+                      value="Offshore, Blast, Rehabilitation"
                     />
                   </div>
+                </div>
+              </Card>
 
-                  <div className="rounded-[1.5rem] border border-border/75 bg-surface-soft/70 p-5 sm:p-6">
+              <div className="grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+                {stats.map((item) => (
+                  <Card key={item.label} className="p-5">
                     <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
-                      About
+                      {item.label}
                     </p>
-                    <p className="mt-4 text-sm leading-8 text-muted sm:text-base">
-                      Dr. Sudip Paul is a seasoned Structural Engineering
-                      leader with more than 29 years of experience delivering
-                      complex industrial, hydrocarbon, and infrastructure
-                      projects across national and international landscapes.
-                      His work spans FEED, EPCM, detailed design, project
-                      execution, and the advancement of Indian Standards in
-                      earthquake engineering.
+                    <p className="mt-3 text-lg font-semibold text-text">
+                      {item.value}
                     </p>
+                  </Card>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay="0.12s" className="hidden lg:block">
+              <Card className="mx-auto max-w-xl p-7 sm:p-8">
+                <div className="space-y-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-accent/80">
+                        Leadership Profile
+                      </p>
+                      <h2 className="mt-3 font-heading text-3xl text-text">
+                        Engineers India Limited
+                      </h2>
+                    </div>
+                    <div className="rounded-full border border-accent/25 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-accent">
+                      FEED / EPCM
+                    </div>
+                  </div>
+
+                  <p className="text-base leading-8 text-muted">
+                    Close to 3 decades of experience in reinforced concrete,
+                    steel structures, offshore platforms, and blast-resistant
+                    infrastructure across large-scale industrial ecosystems.
+                  </p>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <ProfileHighlight
+                      label="Academics"
+                      value="IIEST Shibpur, IIT Kanpur, IIT Delhi"
+                    />
+                    <ProfileHighlight
+                      label="Affiliations"
+                      value="ISRO, IEI, BIS, OISD, ISWE"
+                    />
+                    <ProfileHighlight
+                      label="Core Delivery"
+                      value="FEED, EPCM, Design Execution"
+                    />
+                    <ProfileHighlight
+                      label="Technical Focus"
+                      value="Offshore, Blast, Rehabilitation"
+                    />
                   </div>
                 </div>
               </Card>
@@ -538,19 +443,12 @@ export default function HomePage() {
       <Section
         id="affiliations"
         eyebrow="Affiliations"
-        title="Dr. Paul's affiliations and membership"
+        title="Dr Paul's affiliations and membership"
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {affiliationItems.map((item, index) => (
             <Reveal key={item.name} delay={`${index * 0.06}s`}>
-              <Card className="h-full p-6">
-                <h3 className="font-heading text-2xl text-text">
-                  {item.name}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">
-                  {item.description}
-                </p>
-              </Card>
+              <AffiliationMembershipCard item={item} />
             </Reveal>
           ))}
         </div>
@@ -574,14 +472,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="contact" eyebrow="Contact" title="Connect / Contact Me">
+      <Section id="contact" eyebrow="Contact" title="Connect/Contact me">
         <Reveal>
           <Card className="p-6 sm:p-8">
-            <p className="text-sm leading-7 text-muted">
-              Reach Dr. Sudip Paul through the direct contact options below.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-3">
               {contactActions.map((item) => {
                 const Icon = item.icon;
 
@@ -617,34 +511,62 @@ function ProfileHighlight({ label, value }) {
   );
 }
 
-function StructuralModeLink({ href, label, description }) {
+function HeroIconLink({ href, label }) {
   return (
     <a
       href={href}
-      className="rounded-[1.4rem] border border-border/80 bg-surface/96 p-5 text-left transition duration-300 hover:-translate-y-0.5 hover:border-accent/40"
+      className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-border/80 bg-surface/96 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-text transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
     >
-      <p className="text-xs uppercase tracking-[0.22em] text-accent/80">
-        Portfolio Section
-      </p>
-      <h3 className="mt-3 font-heading text-2xl text-text">{label}</h3>
-      <p className="mt-2 text-sm leading-7 text-muted">{description}</p>
+      <span>{label}</span>
     </a>
   );
 }
 
-function StructuralModeButton({ label, description, onClick }) {
+function AffiliationMembershipCard({ item }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="rounded-[1.4rem] border border-accent/40 bg-surface/96 p-5 text-left transition duration-300 hover:-translate-y-0.5 hover:shadow-glow"
+    <Card className="h-full p-6">
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="font-heading text-2xl text-text">{item.name}</h3>
+        <button
+          type="button"
+          onClick={() => setIsOpen((current) => !current)}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-surface-soft/80 text-muted transition duration-300 hover:border-accent/35 hover:text-accent md:hidden"
+          aria-expanded={isOpen}
+          aria-label={`${isOpen ? "Collapse" : "Expand"} ${item.name}`}
+        >
+          <ChevronToggleIcon expanded={isOpen} />
+        </button>
+      </div>
+
+      <div className="hidden md:block">
+        <p className="mt-4 text-sm leading-7 text-muted">{item.description}</p>
+      </div>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-out md:hidden ${
+          isOpen ? "mt-4 max-h-72 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-sm leading-7 text-muted">{item.description}</p>
+      </div>
+    </Card>
+  );
+}
+
+function ChevronToggleIcon({ expanded }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={`h-4 w-4 fill-none stroke-current transition duration-300 ${
+        expanded ? "rotate-180" : ""
+      }`}
+      strokeWidth="1.8"
     >
-      <p className="text-xs uppercase tracking-[0.22em] text-accent/80">
-        Portfolio Section
-      </p>
-      <h3 className="mt-3 font-heading text-2xl text-text">{label}</h3>
-      <p className="mt-2 text-sm leading-7 text-muted">{description}</p>
-    </button>
+      <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

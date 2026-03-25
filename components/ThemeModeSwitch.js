@@ -12,9 +12,9 @@ export default function ThemeModeSwitch() {
       aria-checked={isDarkMode}
       aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
       onClick={toggleMode}
-      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-2.5 py-2 shadow-soft transition duration-300 hover:border-accent/45 hover:shadow-glow"
+      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-2 py-2 shadow-soft transition duration-300 hover:border-accent/45 hover:shadow-glow sm:px-2.5"
     >
-      <span className="hidden text-[11px] font-semibold uppercase tracking-[0.16em] text-muted sm:inline">
+      <span className="hidden text-[11px] font-semibold uppercase tracking-[0.16em] text-muted 2xl:inline">
         Light
       </span>
       <span
@@ -28,7 +28,7 @@ export default function ThemeModeSwitch() {
           }`}
         />
       </span>
-      <span className="hidden text-[11px] font-semibold uppercase tracking-[0.16em] text-muted sm:inline">
+      <span className="hidden text-[11px] font-semibold uppercase tracking-[0.16em] text-muted 2xl:inline">
         Dark
       </span>
     </button>

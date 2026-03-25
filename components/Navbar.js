@@ -30,13 +30,13 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[80] px-4 py-4 sm:px-6 lg:px-8">
       <nav
-        className={`mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 xl:grid xl:grid-cols-[15rem_minmax(0,1fr)_auto] xl:gap-6 ${
+        className={`relative z-[2] mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 xl:gap-4 ${
           scrolled
             ? "border-border/80 bg-surface/94 shadow-soft"
             : "border-border/60 bg-surface/86"
         }`}
       >
-        <a href="#hero" className="min-w-0 xl:min-w-[15rem] xl:pr-4">
+        <a href="#hero" className="min-w-0 xl:shrink-0 xl:pr-3">
           <span className="block truncate font-heading text-lg text-text sm:text-xl">
             Dr. Sudip Paul
           </span>
@@ -45,33 +45,33 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-4 xl:flex xl:min-w-0 xl:justify-center">
+        <div className="hidden min-w-0 items-center gap-3 xl:flex xl:flex-1 xl:justify-center 2xl:gap-4">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-xs uppercase tracking-[0.22em] text-muted hover:text-accent"
+              className="text-[11px] uppercase tracking-[0.2em] text-muted hover:text-accent"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3 xl:ml-0 xl:justify-self-end">
+        <div className="ml-auto flex items-center gap-2 sm:gap-3 xl:shrink-0">
           <ThemeSwitcher />
           <ThemeModeSwitch />
           <Button
             href="#contact"
             variant="secondary"
             size="sm"
-            className="hidden sm:inline-flex"
+            className="hidden 2xl:inline-flex"
           >
             Contact
           </Button>
         </div>
       </nav>
 
-      <div className="mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-border/60 bg-surface/78 px-3 py-2 backdrop-blur xl:hidden">
+      <div className="relative z-[1] mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-border/60 bg-surface/78 px-3 py-2 backdrop-blur xl:hidden">
         {navItems.map((item) => (
           <a
             key={item.href}
