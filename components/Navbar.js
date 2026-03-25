@@ -5,7 +5,8 @@ import Button from "@/components/Button";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const navItems = [
-  { label: "About", href: "#about" },
+  { label: "Academics", href: "#academics" },
+  { label: "Affiliations", href: "#affiliations" },
   { label: "Experience", href: "#experience" },
   { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
