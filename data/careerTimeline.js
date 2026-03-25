@@ -56,13 +56,13 @@ export const careerTimelineTable = [
   {
     year: "2009-2011",
     type: "Project",
-    title: "GSPC",
+    title: "Gujrat State Petroleum Corporation Ltd",
     subtitle: "Gas Terminal"
   },
   {
     year: "2006-2007",
     type: "Project",
-    title: "Tecnimont",
+    title: "Tecnimont, Kuwait",
     subtitle: "Aromatics Plant"
   },
   {
@@ -82,6 +82,12 @@ export const careerTimelineTable = [
     type: "Project",
     title: "Govt R&D",
     subtitle: "Space Infrastructure"
+  },
+  {
+    year: "1998-2000",
+    type: "Project",
+    title: "CPCL/IOCL/STERLITE/NALCO/HINDALCO",
+    subtitle: "Industrial Structures"
   },
   {
     year: "1999-2001",
@@ -136,42 +142,42 @@ export const careerRoleHighlights = [
   {
     period: "2006-2007",
     role: "Functional Engineer",
-    organization: "Tecnimont"
+    organization: "EIL"
   },
   {
     period: "2005-2006",
     role: "Functional Engineer",
-    organization: "HPCL"
+    organization: "EIL"
   },
   {
     period: "2004",
     role: "Functional Engineer",
-    organization: "ONGC"
+    organization: "EIL"
   },
   {
     period: "2002-2006",
     role: "Functional Engineer",
-    organization: "IOCL/HPCL/BPCL"
+    organization: "EIL"
   },
   {
     period: "2001-2002",
     role: "Functional Engineer",
-    organization: "Govt R&D"
+    organization: "EIL"
   },
   {
     period: "2000",
     role: "Functional Engineer",
-    organization: "ONGC"
+    organization: "EIL"
   },
   {
     period: "1999-2001",
     role: "Functional Engineer",
-    organization: "GAIL"
+    organization: "EIL"
   },
   {
     period: "1998-2010",
     role: "Lead/Functional Engineer",
-    organization: "Multiple Clients"
+    organization: "EIL"
   },
   {
     period: "1994-1996",
@@ -273,7 +279,7 @@ export const careerProjects = [
   },
   {
     yearRange: "2009-2011",
-    client: "GSPC",
+    client: "Gujrat State Petroleum Corporation Ltd",
     shortTag: "Gas Terminal",
     projectType: "EPCM",
     rolePeriod: "2009-2011",
@@ -283,12 +289,12 @@ export const careerProjects = [
   },
   {
     yearRange: "2006-2007",
-    client: "Tecnimont",
+    client: "Tecnimont, Kuwait",
     shortTag: "Aromatics Plant",
     projectType: "Design",
     rolePeriod: "2006-2007",
     roleTitle: "Functional Engineer",
-    organization: "Tecnimont",
+    organization: "EIL",
     detailsHref: "/papers/pdf11.pdf"
   },
   {
@@ -342,13 +348,13 @@ export const careerProjects = [
     detailsHref: "/papers/pdf16.pdf"
   },
   {
-    yearRange: "1998-2010",
-    client: "IOCL / HPCL / BPCL",
+    yearRange: "1998-2000",
+    client: "CPCL/IOCL/STERLITE/NALCO/HINDALCO",
     shortTag: "Industrial Structures",
     projectType: "EPCM",
     rolePeriod: "1998-2010",
     roleTitle: "Lead/Functional Engineer",
-    organization: "Multiple Clients",
+    organization: "EIL",
     detailsHref: "/papers/pdf17.pdf"
   },
   {

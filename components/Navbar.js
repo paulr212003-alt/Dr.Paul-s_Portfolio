@@ -15,6 +15,10 @@ const navItems = [
   { label: "Contact", href: "#contact" }
 ];
 
+const mobileNavItems = navItems.filter(
+  (item) => item.label !== "Projects" && item.label !== "Timeline"
+);
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -28,9 +32,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[80] px-4 py-4 sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-[120] px-4 py-4 sm:px-6 lg:px-8">
       <nav
-        className={`relative z-[2] mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 xl:gap-4 ${
+        className={`relative z-[3] mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 xl:gap-4 ${
           scrolled
             ? "border-border/80 bg-surface/94 shadow-soft"
             : "border-border/60 bg-surface/86"
@@ -71,8 +75,8 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className="relative z-[1] mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-border/60 bg-surface/78 px-3 py-2 backdrop-blur xl:hidden">
-        {navItems.map((item) => (
+      <div className="relative z-[2] mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto rounded-full border border-border/60 bg-surface/78 px-3 py-2 backdrop-blur xl:hidden">
+        {mobileNavItems.map((item) => (
           <a
             key={item.href}
             href={item.href}

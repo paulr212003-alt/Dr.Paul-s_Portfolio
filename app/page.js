@@ -208,7 +208,10 @@ export default function HomePage() {
 
               <div className="space-y-5">
                 <h1 className="max-w-3xl text-balance font-heading text-[3.05rem] leading-[0.94] text-text sm:text-6xl lg:text-6xl">
-                  General Manager - Structural Engineering
+                  <span className="block">General Manager</span>
+                  <span className="mt-2 block text-[0.72em] leading-tight text-text/96 sm:text-[0.74em]">
+                    Structural
+                  </span>
                 </h1>
                 <p className="text-base font-semibold uppercase tracking-[0.28em] text-accent/80 sm:text-lg">
                   Industrial & Offshore Infrastructure
@@ -225,11 +228,6 @@ export default function HomePage() {
                 <Button href="#experience" variant="secondary">
                   View Timeline
                 </Button>
-              </div>
-
-              <div className="flex gap-3 lg:hidden">
-                <HeroIconLink href="#projects" label="Projects" />
-                <HeroIconLink href="#experience" label="Timeline" />
               </div>
 
               <Card className="p-5 sm:p-6 lg:hidden">
@@ -283,7 +281,7 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay="0.12s" className="hidden lg:block">
+            <Reveal delay="0.12s">
               <Card className="mx-auto max-w-xl p-7 sm:p-8">
                 <div className="space-y-6">
                   <div className="flex items-start justify-between gap-4">
@@ -331,12 +329,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section
-        id="projects"
-        eyebrow="Projects"
-        title="Projects by geography."
-        description="A static SVG-driven project map experience with separate views for India and international work."
-      >
+      <Section id="projects" eyebrow="Projects" title="Projects">
         <div className="grid gap-5 lg:grid-cols-2">
           <Reveal>
             <ProjectMap
@@ -407,8 +400,7 @@ export default function HomePage() {
       <Section
         id="publications"
         eyebrow="Publications"
-        title="Selected publications and technical papers."
-        description="Ten publication entries taken from Dr. Sudip Paul's CV, each linked to a placeholder paper file path."
+        title="Published Journals and Papers"
       >
         <div className="space-y-4">
           {publicationItems.map((item, index) => (
@@ -508,17 +500,6 @@ function ProfileHighlight({ label, value }) {
       <p className="text-xs uppercase tracking-[0.22em] text-muted">{label}</p>
       <p className="mt-2 text-sm font-semibold leading-6 text-text">{value}</p>
     </div>
-  );
-}
-
-function HeroIconLink({ href, label }) {
-  return (
-    <a
-      href={href}
-      className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-border/80 bg-surface/96 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-text transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent"
-    >
-      <span>{label}</span>
-    </a>
   );
 }
 
