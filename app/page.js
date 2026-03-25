@@ -65,7 +65,8 @@ const expertiseItems = [
 
 const academicsItems = [
   {
-    logo: "IIEST",
+    logoAlt: "IIEST Shibpur logo",
+    logoSrc: "/IIEST_Shibpur_Logo.png",
     degree: "B.E Civil Engineering",
     institute: "IIEST Shibpur",
     year: "1994",
@@ -73,7 +74,8 @@ const academicsItems = [
     achievement: "First Rank"
   },
   {
-    logo: "IITK",
+    logoAlt: "IIT Kanpur logo",
+    logoSrc: "/IIT-K.png",
     degree: "M.Tech Structural Engineering",
     institute: "IIT Kanpur",
     year: "1998",
@@ -81,7 +83,8 @@ const academicsItems = [
     achievement: "Highest CGPI"
   },
   {
-    logo: "IITD",
+    logoAlt: "IIT Delhi logo",
+    logoSrc: "/IIT-D.png",
     degree: "PhD Structural Engineering",
     institute: "IIT Delhi",
     year: "2011",
@@ -95,25 +98,43 @@ const affiliationItems = [
     name: "Engineers India Limited",
     label: "Executive Leadership",
     description:
-      "Driving structural engineering governance and multidisciplinary execution for major industrial and hydrocarbon programs."
+      "Driving structural engineering governance, multidisciplinary coordination, and large-scale project execution across hydrocarbon, refinery, and infrastructure domains. Leading high-impact engineering initiatives across FEED, EPCM, and detailed design phases for nationally significant projects."
   },
   {
     name: "ISRO",
     label: "Strategic Contribution",
     description:
-      "Associated with nationally significant engineering work requiring precision, reliability, and technical depth."
+      "Contributed to critical infrastructure development supporting India's space missions, including structural engineering involvement in launch facility systems. Work demanded high precision, reliability, and adherence to stringent safety and performance standards associated with aerospace infrastructure."
   },
   {
-    name: "BIS",
+    name: "The Institution of Engineers (India)",
+    label: "Professional Fellowship",
+    description:
+      "Recognized as a Fellow of India's premier professional engineering body, reflecting sustained contributions to the engineering profession, technical excellence, and leadership within the civil and structural engineering community."
+  },
+  {
+    name: "IIT Kanpur Building Works Committee",
+    label: "Academic Infrastructure Governance",
+    description:
+      "Active member contributing to planning, evaluation, and oversight of institutional infrastructure development at IIT Kanpur, ensuring engineering integrity, safety, and alignment with long-term academic and research needs."
+  },
+  {
+    name: "Oil Industry Safety Directorate (OISD)",
+    label: "Sector Safety Interface",
+    description:
+      "Associated with safety standardization for hydrocarbon infrastructure, particularly in control room design and blast-resistant structures. Contributing to frameworks that enhance operational safety in high-risk industrial environments."
+  },
+  {
+    name: "Indian Society for Wind Engineering (ISWE)",
+    label: "Technical Community Engagement",
+    description:
+      "Member of a specialized body focused on wind effects on structures, contributing to the understanding and application of aerodynamic and environmental loading considerations in structural design."
+  },
+  {
+    name: "Bureau of Indian Standards (BIS)",
     label: "Standards Development",
     description:
-      "Active contribution to Indian Standards work in earthquake engineering and related structural practice."
-  },
-  {
-    name: "Oil Industry Safety Directorate",
-    label: "Sector Interface",
-    description:
-      "Connected with safety-focused engineering practices relevant to refinery and hydrocarbon infrastructure."
+      "Actively involved in the development and refinement of Indian Standards, particularly in earthquake engineering and structural safety. Contribution supports national-level codification and engineering best practices."
   }
 ];
 
@@ -343,7 +364,7 @@ export default function HomePage() {
                       />
                       <ProfileHighlight
                         label="Affiliations"
-                        value="ISRO, BIS, OISD"
+                        value="ISRO, IEI, BIS, OISD, ISWE"
                       />
                       <ProfileHighlight
                         label="Core Delivery"
@@ -509,8 +530,14 @@ export default function HomePage() {
           {academicsItems.map((item, index) => (
             <Reveal key={item.institute} delay={`${index * 0.06}s`}>
               <Card className="h-full p-6">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-surface-soft text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                  {item.logo}
+                <div className="relative h-16 w-16 overflow-hidden rounded-[1rem] border border-accent/30 bg-surface-soft/90 p-2">
+                  <Image
+                    src={item.logoSrc}
+                    alt={item.logoAlt}
+                    fill
+                    sizes="64px"
+                    className="object-contain p-2"
+                  />
                 </div>
                 <p className="mt-6 text-xs uppercase tracking-[0.24em] text-accent/80">
                   {item.year}
@@ -582,7 +609,7 @@ export default function HomePage() {
         title="Institutional associations that reflect trust, standards, and strategic engagement."
         description="A concise view of the organizations and forums connected to Dr. Sudip Paul's professional work."
       >
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {affiliationItems.map((item, index) => (
             <Reveal key={item.name} delay={`${index * 0.06}s`}>
               <Card className="h-full p-6">
