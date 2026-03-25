@@ -329,11 +329,16 @@ body {
 .timeline-line {
   background: linear-gradient(
     180deg,
-    rgb(var(--color-border) / 0),
-    rgb(var(--color-border) / 0.9) 24%,
-    rgb(var(--color-border) / 0.9) 76%,
-    rgb(var(--color-border) / 0)
+    rgb(var(--color-secondary) / 0),
+    rgb(var(--color-secondary) / 0.52) 24%,
+    rgb(var(--color-secondary) / 0.52) 76%,
+    rgb(var(--color-secondary) / 0)
   );
+}
+
+.career-axis {
+  background: rgb(var(--color-secondary) / 0.5);
+  box-shadow: 0 0 12px rgb(var(--shadow-rgb) / 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -30,22 +30,22 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[80] px-4 py-4 sm:px-6 lg:px-8">
       <nav
-        className={`mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 ${
+        className={`mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 xl:grid xl:grid-cols-[15rem_minmax(0,1fr)_auto] xl:gap-6 ${
           scrolled
             ? "border-border/80 bg-surface/94 shadow-soft"
             : "border-border/60 bg-surface/86"
         }`}
       >
-        <a href="#hero" className="min-w-0">
+        <a href="#hero" className="min-w-0 xl:min-w-[15rem] xl:pr-4">
           <span className="block truncate font-heading text-lg text-text sm:text-xl">
             Dr. Sudip Paul
           </span>
-          <span className="hidden text-[11px] uppercase tracking-[0.28em] text-accent/80 sm:block">
+          <span className="hidden leading-4 text-[10px] uppercase tracking-[0.22em] text-accent/80 sm:block">
             Structural Engineering
           </span>
         </a>
 
-        <div className="hidden items-center gap-5 xl:flex">
+        <div className="hidden items-center gap-4 xl:flex xl:min-w-0 xl:justify-center">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+        <div className="ml-auto flex items-center gap-2 sm:gap-3 xl:ml-0 xl:justify-self-end">
           <ThemeSwitcher />
           <ThemeModeSwitch />
           <Button

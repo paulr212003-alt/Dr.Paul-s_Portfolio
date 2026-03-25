@@ -12,7 +12,7 @@ import Section from "@/components/Section";
 import { getProjectsByCategory } from "@/data/projects";
 
 const stats = [
-  { label: "Experience", value: "27+ Years" },
+  { label: "Experience", value: "29+ Years" },
   { label: "Current Role", value: "General Manager" },
   { label: "Specialization", value: "Industrial & Offshore" }
 ];
@@ -206,7 +206,7 @@ export default function HomePage() {
       description: "See institutional and sector associations."
     },
     {
-      label: "Career Timeline",
+      label: "Timeline",
       href: "#experience",
       description: "Move through the combined role and project timeline."
     },
@@ -246,21 +246,21 @@ export default function HomePage() {
           >
             <div className="grid w-full gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
               <Reveal className="space-y-7">
-                <div className="flex items-center gap-4">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-full border border-accent/45 bg-surface-soft shadow-soft sm:h-20 sm:w-20">
+                <div className="flex items-center gap-5">
+                  <div className="relative h-20 w-20 overflow-hidden rounded-full border border-accent/45 bg-surface-soft shadow-soft sm:h-24 sm:w-24">
                     <Image
                       src="/profile.png"
                       alt="Portrait of Dr. Sudip Paul"
                       fill
-                      sizes="(min-width: 640px) 80px, 64px"
+                      sizes="(min-width: 640px) 96px, 80px"
                       className="object-cover"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <div className="inline-flex items-center rounded-full border border-accent/25 bg-surface px-4 py-2 text-xs uppercase tracking-[0.3em] text-accent shadow-soft">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center rounded-full border border-accent/25 bg-surface px-5 py-2.5 text-[11px] uppercase tracking-[0.28em] text-accent shadow-soft sm:text-xs">
                       Executive Portfolio
                     </div>
-                    <p className="text-xs uppercase tracking-[0.32em] text-accent/80">
+                    <p className="text-sm uppercase tracking-[0.28em] text-accent/80 sm:text-base">
                       Dr. Sudip Paul
                     </p>
                   </div>
@@ -277,6 +277,11 @@ export default function HomePage() {
                     Executive-level structural engineering leadership for
                     complex industrial, hydrocarbon, and infrastructure programs
                     across national and international landscapes.
+                  </p>
+                  <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
+                    He has 3 decades of experience in civil, structural,
+                    refinery, petrochemical, offshore, and industrial
+                    infrastructure engineering.
                   </p>
                 </div>
 
@@ -405,13 +410,13 @@ export default function HomePage() {
                       About
                     </p>
                     <p className="mt-4 text-sm leading-8 text-muted sm:text-base">
-                      Dr. Sudip Paul is a seasoned Structural Engineering leader
-                      with over 27 years of experience delivering complex
-                      industrial, hydrocarbon, and infrastructure projects
-                      across national and international landscapes. His work
-                      spans FEED, EPCM, detailed design, project execution, and
-                      the advancement of Indian Standards in earthquake
-                      engineering.
+                      Dr. Sudip Paul is a seasoned Structural Engineering
+                      leader with more than 29 years of experience delivering
+                      complex industrial, hydrocarbon, and infrastructure
+                      projects across national and international landscapes.
+                      His work spans FEED, EPCM, detailed design, project
+                      execution, and the advancement of Indian Standards in
+                      earthquake engineering.
                     </p>
                   </div>
                 </div>
@@ -452,12 +457,7 @@ export default function HomePage() {
 
       <CareerTimelineSection />
 
-      <Section
-        id="academics"
-        eyebrow="Academics"
-        title="A strong academic foundation with consistent distinction."
-        description="Institutions now lead the hierarchy, with degrees presented as the supporting line beneath each heading."
-      >
+      <Section id="academics" eyebrow="Academics" title="Academic Highlights">
         <div className="grid gap-4 lg:grid-cols-3">
           {academicsItems.map((item, index) => (
             <Reveal key={item.institute} delay={`${index * 0.06}s`}>
@@ -538,17 +538,13 @@ export default function HomePage() {
       <Section
         id="affiliations"
         eyebrow="Affiliations"
-        title="Institutional associations that reflect trust, standards, and strategic engagement."
-        description="A concise view of the organizations and forums connected to Dr. Sudip Paul's professional work."
+        title="Dr. Paul's affiliations and membership"
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {affiliationItems.map((item, index) => (
             <Reveal key={item.name} delay={`${index * 0.06}s`}>
               <Card className="h-full p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-accent/80">
-                  {item.label}
-                </p>
-                <h3 className="mt-3 font-heading text-2xl text-text">
+                <h3 className="font-heading text-2xl text-text">
                   {item.name}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-muted">
@@ -560,12 +556,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section
-        id="expertise"
-        eyebrow="Expertise"
-        title="Focused capabilities across industrial, offshore, and rehabilitation work."
-        description="A summary layer that closes the narrative after projects, credentials, and publications."
-      >
+      <Section id="expertise" eyebrow="Expertise" title="Key areas of Expertise">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {expertiseItems.map((item, index) => (
             <Reveal key={item.title} delay={`${index * 0.06}s`}>
@@ -583,17 +574,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section
-        id="contact"
-        eyebrow="Contact"
-        title="Connect directly."
-        description="The direct contact buttons below keep the experience simple and reliable."
-      >
+      <Section id="contact" eyebrow="Contact" title="Connect / Contact Me">
         <Reveal>
           <Card className="p-6 sm:p-8">
             <p className="text-sm leading-7 text-muted">
-              Reach Dr. Sudip Paul through LinkedIn, email, or phone using the
-              direct actions below.
+              Reach Dr. Sudip Paul through the direct contact options below.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
