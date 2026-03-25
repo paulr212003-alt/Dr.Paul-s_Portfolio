@@ -7,37 +7,18 @@ import CareerTimelineSection from "@/components/CareerTimelineSection";
 import Card from "@/components/Card";
 import Navbar from "@/components/Navbar";
 import ProjectMap from "@/components/ProjectMap";
+import SkillBars from "@/components/SkillBars";
+import SkillPie from "@/components/SkillPie";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { getProjectsByCategory } from "@/data/projects";
+
+import { skillsData } from "@/data/skills";
 
 const stats = [
   { label: "Experience", value: "29+ Years" },
   { label: "Current Role", value: "General Manager" },
   { label: "Specialization", value: "Industrial & Offshore" }
-];
-
-const expertiseItems = [
-  {
-    title: "Structural Engineering",
-    description:
-      "Reinforced concrete and steel design leadership for demanding industrial programs."
-  },
-  {
-    title: "Offshore Analysis",
-    description:
-      "Structural review and analysis for offshore platforms and associated systems."
-  },
-  {
-    title: "Blast-Resistant Design",
-    description:
-      "Engineering solutions for control rooms and critical structures in high-risk environments."
-  },
-  {
-    title: "Structural Rehabilitation",
-    description:
-      "Retrofit, repair, and strengthening strategies for existing concrete and steel assets."
-  }
 ];
 
 const academicsItems = [
@@ -217,9 +198,9 @@ export default function HomePage() {
                   Industrial & Offshore Infrastructure
                 </p>
                 <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                  Close to 3 decades of experience in reinforced concrete,
-                  steel structures, offshore platforms, and blast-resistant
-                  infrastructure across large-scale industrial ecosystems.
+                  Specialized in industrial structural systems spanning
+                  refinery, offshore, blast-resistant, seismic, and
+                  rehabilitation work.
                 </p>
               </div>
 
@@ -299,9 +280,12 @@ export default function HomePage() {
                   </div>
 
                   <p className="text-base leading-8 text-muted">
-                    Close to 3 decades of experience in reinforced concrete,
-                    steel structures, offshore platforms, and blast-resistant
-                    infrastructure across large-scale industrial ecosystems.
+                    Specialized in the analysis and design of complex
+                    industrial systems, including refinery units, offshore
+                    platforms, and safety-critical infrastructure with work
+                    spanning across nonlinear analysis, seismic evaluation, and
+                    advanced structural design methodologies across diverse
+                    engineering environments.
                   </p>
 
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -446,21 +430,39 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="expertise" eyebrow="Expertise" title="Key areas of Expertise">
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {expertiseItems.map((item, index) => (
-            <Reveal key={item.title} delay={`${index * 0.06}s`}>
-              <Card className="h-full p-6">
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border border-accent/25 bg-surface-soft/60 text-sm font-semibold text-accent">
-                  0{index + 1}
-                </div>
-                <h3 className="font-heading text-2xl text-text">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  {item.description}
+      <Section id="skills" eyebrow="Skills" title="Skills & Engineering Insights">
+        <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+            <Card className="h-full p-6 sm:p-7">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
+                  Engineering Strengths
                 </p>
-              </Card>
-            </Reveal>
-          ))}
+                <h3 className="font-heading text-2xl text-text">
+                  Bar view
+                </h3>
+              </div>
+              <div className="mt-6">
+                <SkillBars data={skillsData} />
+              </div>
+            </Card>
+          </Reveal>
+
+          <Reveal delay="0.08s">
+            <Card className="h-full p-6 sm:p-7">
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
+                  Focus Distribution
+                </p>
+                <h3 className="font-heading text-2xl text-text">
+                  SVG pie view
+                </h3>
+              </div>
+              <div className="mt-6">
+                <SkillPie data={skillsData} />
+              </div>
+            </Card>
+          </Reveal>
         </div>
       </Section>
 

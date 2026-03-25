@@ -86,8 +86,8 @@ export const careerTimelineTable = [
   {
     year: "1998-2000",
     type: "Project",
-    title: "CPCL/IOCL/STERLITE/NALCO/HINDALCO",
-    subtitle: "Industrial Structures"
+    title: "CPCL/IOCL/NALCO",
+    subtitle: "HINDALCO"
   },
   {
     year: "1999-2001",
@@ -349,8 +349,8 @@ export const careerProjects = [
   },
   {
     yearRange: "1998-2000",
-    client: "CPCL/IOCL/STERLITE/NALCO/HINDALCO",
-    shortTag: "Industrial Structures",
+    client: "CPCL/IOCL/NALCO",
+    shortTag: "HINDALCO",
     projectType: "EPCM",
     rolePeriod: "1998-2010",
     roleTitle: "Lead/Functional Engineer",

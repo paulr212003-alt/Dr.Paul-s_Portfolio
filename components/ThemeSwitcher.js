@@ -25,11 +25,11 @@ export default function ThemeSwitcher() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-[180]">
+    <div ref={containerRef} className="relative z-[240]">
       <button
         type="button"
         onClick={() => setIsOpen((current) => !current)}
-        className="inline-flex min-w-[7.2rem] items-center justify-between gap-2 rounded-full border border-[rgb(var(--color-secondary)/0.32)] bg-[rgb(var(--color-secondary)/0.12)] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-text shadow-soft transition duration-300 hover:border-accent/50 hover:bg-[rgb(var(--color-secondary)/0.16)] hover:shadow-glow sm:min-w-[8rem] xl:min-w-[7.1rem]"
+        className="inline-flex min-w-[7.2rem] items-center justify-between gap-2 rounded-full border border-[rgb(var(--color-secondary)/0.42)] bg-[rgb(var(--color-secondary)/0.2)] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-text shadow-soft transition duration-300 hover:border-accent/55 hover:bg-[rgb(var(--color-secondary)/0.26)] hover:shadow-glow sm:min-w-[8rem] xl:min-w-[7.1rem]"
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
@@ -41,7 +41,7 @@ export default function ThemeSwitcher() {
       </button>
 
       {isOpen ? (
-        <div className="absolute right-0 top-full z-[190] mt-3 max-h-[65vh] w-[17rem] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-[1.35rem] border border-border bg-surface p-2 shadow-float">
+        <div className="absolute right-0 top-full z-[260] mt-3 max-h-[65vh] w-[17rem] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-[1.35rem] border border-border/80 bg-surface p-2 shadow-float">
           {themes.map((item) => (
             <button
               key={item.id}

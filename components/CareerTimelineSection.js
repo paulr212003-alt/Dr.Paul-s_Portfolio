@@ -87,14 +87,14 @@ export default function CareerTimelineSection() {
                       top: isTopCard ? "1.5rem" : "20.5rem"
                     }}
                   >
-                    <Card className="p-5">
+                    <Card className="min-h-[11rem] p-5">
                       <p className="text-[10px] uppercase tracking-[0.22em] text-accent/80">
                         {item.yearRange}
                       </p>
-                      <h3 className="mt-3 font-heading text-2xl text-text">
+                      <h3 className="mt-3 font-heading text-2xl leading-[1.05] text-justify text-text [text-align-last:left]">
                         {item.client}
                       </h3>
-                      <p className="mt-2 text-sm leading-7 text-muted">
+                      <p className="mt-2 text-sm leading-7 text-justify text-muted">
                         {item.shortTag}
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2">
@@ -196,12 +196,16 @@ function getRoleOrganization(project) {
 
 function TimelineProjectCard({ project }) {
   return (
-    <Card className="p-4 sm:p-5">
+    <Card className="lg:min-h-[11rem] p-4 sm:p-5">
       <p className="text-[10px] uppercase tracking-[0.22em] text-accent/80">
         {project.yearRange}
       </p>
-      <h3 className="mt-3 font-heading text-2xl text-text">{project.client}</h3>
-      <p className="mt-2 text-sm leading-7 text-muted">{project.shortTag}</p>
+      <h3 className="mt-3 font-heading text-2xl leading-[1.05] text-justify text-text [text-align-last:left]">
+        {project.client}
+      </h3>
+      <p className="mt-2 text-sm leading-7 text-justify text-muted">
+        {project.shortTag}
+      </p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         <Button
