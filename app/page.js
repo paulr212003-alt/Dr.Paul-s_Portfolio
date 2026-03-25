@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
+import CareerTimelineSection from "@/components/CareerTimelineSection";
 import Card from "@/components/Card";
 import Navbar from "@/components/Navbar";
 import ProjectMap from "@/components/ProjectMap";
@@ -14,30 +15,6 @@ const stats = [
   { label: "Experience", value: "27+ Years" },
   { label: "Current Role", value: "General Manager" },
   { label: "Specialization", value: "Industrial & Offshore" }
-];
-
-const experienceItems = [
-  {
-    role: "General Manager - Structural Engineering",
-    company: "Engineers India Limited",
-    period: "Present",
-    description:
-      "Leading structural engineering strategy, design governance, and multidisciplinary coordination for complex industrial, hydrocarbon, and infrastructure programs."
-  },
-  {
-    role: "Leadership Across FEED, EPCM, and Detailed Design",
-    company: "Engineers India Limited",
-    period: "Career Progression",
-    description:
-      "Delivered reinforced concrete and structural steel engineering solutions across major national and international assignments with strong project management oversight."
-  },
-  {
-    role: "Technical Associations and Standards Contributions",
-    company: "ISRO, BIS, Public-Sector Enterprises",
-    period: "Ongoing",
-    description:
-      "Contributed technical expertise to strategic projects, institutional collaboration, and the evolution of Indian Standards in earthquake engineering."
-  }
 ];
 
 const expertiseItems = [
@@ -229,9 +206,9 @@ export default function HomePage() {
       description: "See institutional and sector associations."
     },
     {
-      label: "Experience",
+      label: "Career Timeline",
       href: "#experience",
-      description: "Move through the professional timeline."
+      description: "Move through the combined role and project timeline."
     },
     {
       label: "Publications",
@@ -306,7 +283,7 @@ export default function HomePage() {
                 <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                   <Button href="#projects">View Projects</Button>
                   <Button href="#experience" variant="secondary">
-                    View Experience
+                    View Timeline
                   </Button>
                   <Button
                     as="button"
@@ -473,52 +450,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section
-        id="experience"
-        eyebrow="Experience"
-        title="A career shaped by design discipline, project scale, and institutional trust."
-        description="A timeline-ready structure that stays minimal today and expands cleanly as additional project milestones are added."
-      >
-        <div className="relative space-y-6">
-          <div className="timeline-line absolute left-4 top-2 h-[calc(100%-1rem)] w-px sm:left-1/2 sm:-translate-x-1/2" />
-          {experienceItems.map((item, index) => (
-            <Reveal
-              key={item.role}
-              delay={`${index * 0.08}s`}
-              className="relative sm:grid sm:grid-cols-2 sm:gap-8"
-            >
-              <div
-                className={`mb-4 pl-12 sm:mb-0 sm:pl-0 ${
-                  index % 2 === 0 ? "sm:pr-10" : "sm:col-start-2 sm:pl-10"
-                }`}
-              >
-                <Card className="relative p-6 sm:p-7">
-                  <div
-                    className={`absolute left-[-2.15rem] top-8 h-4 w-4 rounded-full border-4 border-bg bg-accent ${
-                      index % 2 === 0
-                        ? "sm:left-auto sm:right-[-2.45rem]"
-                        : "sm:left-[-2.45rem] sm:right-auto"
-                    }`}
-                  />
-                  <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
-                    {item.period}
-                  </p>
-                  <h3 className="mt-3 font-heading text-2xl text-text">
-                    {item.role}
-                  </h3>
-                  <p className="mt-2 text-sm uppercase tracking-[0.2em] text-muted">
-                    {item.company}
-                  </p>
-                  <p className="mt-4 text-sm leading-7 text-muted">
-                    {item.description}
-                  </p>
-                </Card>
-              </div>
-              <div className={index % 2 === 0 ? "hidden sm:block" : "hidden"} />
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+      <CareerTimelineSection />
 
       <Section
         id="academics"
