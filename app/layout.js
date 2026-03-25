@@ -3,7 +3,9 @@ import Script from "next/script";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import {
   DEFAULT_THEME,
+  DEFAULT_THEME_MODE,
   THEME_IDS,
+  THEME_MODE_STORAGE_KEY,
   THEME_STORAGE_KEY
 } from "@/lib/themes";
 import "./globals.css";
@@ -23,18 +25,24 @@ const inter = Inter({
 
 const themeInitScript = `
   (function () {
-    var storageKey = "${THEME_STORAGE_KEY}";
+    var themeStorageKey = "${THEME_STORAGE_KEY}";
+    var modeStorageKey = "${THEME_MODE_STORAGE_KEY}";
     var fallbackTheme = "${DEFAULT_THEME}";
+    var fallbackMode = "${DEFAULT_THEME_MODE}";
     var validThemes = ${JSON.stringify(THEME_IDS)};
 
     try {
-      var storedTheme = window.localStorage.getItem(storageKey);
+      var storedTheme = window.localStorage.getItem(themeStorageKey);
+      var storedMode = window.localStorage.getItem(modeStorageKey);
       var theme = validThemes.indexOf(storedTheme) >= 0 ? storedTheme : fallbackTheme;
+      var mode = storedMode === "dark" ? "dark" : fallbackMode;
       document.documentElement.setAttribute("data-theme", theme);
-      document.documentElement.style.colorScheme = "light";
+      document.documentElement.setAttribute("data-mode", mode);
+      document.documentElement.style.colorScheme = mode;
     } catch (error) {
       document.documentElement.setAttribute("data-theme", fallbackTheme);
-      document.documentElement.style.colorScheme = "light";
+      document.documentElement.setAttribute("data-mode", fallbackMode);
+      document.documentElement.style.colorScheme = fallbackMode;
     }
   })();
 `;

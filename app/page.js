@@ -65,9 +65,9 @@ const expertiseItems = [
 
 const academicsItems = [
   {
-    logo: "BEC",
+    logo: "IIEST",
     degree: "B.E Civil Engineering",
-    institute: "Bengal Engineering College",
+    institute: "IIEST Shibpur",
     year: "1994",
     score: "85.32%",
     achievement: "First Rank"
@@ -200,7 +200,7 @@ export default function HomePage() {
     {
       label: "Academics",
       href: "#academics",
-      description: "Review degrees, scores, and achievements."
+      description: "Review institutions, degrees, and distinctions."
     },
     {
       label: "Affiliations",
@@ -235,7 +235,7 @@ export default function HomePage() {
 
       <section
         id="hero"
-        className="relative mx-auto flex min-h-screen w-full max-w-7xl scroll-mt-24 items-center px-4 pb-16 pt-44 sm:px-6 sm:pt-40 lg:px-8 lg:pt-32"
+        className="relative mx-auto flex min-h-screen w-full max-w-7xl scroll-mt-24 items-center px-4 pb-16 pt-52 sm:px-6 sm:pt-44 lg:px-8 lg:pt-32"
       >
         <div className="w-full">
           <div
@@ -251,8 +251,8 @@ export default function HomePage() {
                 <div className="flex items-center gap-4">
                   <div className="relative h-16 w-16 overflow-hidden rounded-full border border-accent/45 bg-surface-soft shadow-soft sm:h-20 sm:w-20">
                     <Image
-                      src="/profile.jpg"
-                      alt="Profile placeholder for Dr. Sudip Paul"
+                      src="/profile.png"
+                      alt="Portrait of Dr. Sudip Paul"
                       fill
                       sizes="(min-width: 640px) 80px, 64px"
                       className="object-cover"
@@ -283,9 +283,9 @@ export default function HomePage() {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                  <Button href="#experience">View Experience</Button>
-                  <Button href="#projects" variant="secondary">
-                    View Projects
+                  <Button href="#projects">View Projects</Button>
+                  <Button href="#experience" variant="secondary">
+                    View Experience
                   </Button>
                   <Button
                     as="button"
@@ -339,7 +339,7 @@ export default function HomePage() {
                     <div className="grid gap-3 sm:grid-cols-2">
                       <ProfileHighlight
                         label="Academics"
-                        value="IIT Kanpur, IIT Delhi"
+                        value="IIEST Shibpur, IIT Kanpur, IIT Delhi"
                       />
                       <ProfileHighlight
                         label="Affiliations"
@@ -363,7 +363,7 @@ export default function HomePage() {
           <div
             className={`overflow-hidden transition-all duration-300 ease-out ${
               isStructuralMode
-                ? "max-h-[2200px] translate-y-0 opacity-100"
+                ? "max-h-[2600px] translate-y-0 opacity-100"
                 : "pointer-events-none max-h-0 -translate-y-3 opacity-0"
             }`}
             aria-hidden={!isStructuralMode}
@@ -380,8 +380,8 @@ export default function HomePage() {
                     </h2>
                     <p className="max-w-2xl text-sm leading-7 text-muted sm:text-base">
                       A compact sectional layout designed for quick scanning
-                      across academics, affiliations, experience, and project
-                      work.
+                      across projects, academics, publications, affiliations,
+                      and leadership credentials.
                     </p>
                   </div>
 
@@ -401,6 +401,21 @@ export default function HomePage() {
                       onClick={() => setIsStructuralMode(false)}
                     />
                   </div>
+
+                  <div className="rounded-[1.5rem] border border-border/75 bg-surface-soft/70 p-5 sm:p-6">
+                    <p className="text-xs uppercase tracking-[0.26em] text-accent/80">
+                      About
+                    </p>
+                    <p className="mt-4 text-sm leading-8 text-muted sm:text-base">
+                      Dr. Sudip Paul is a seasoned Structural Engineering leader
+                      with over 27 years of experience delivering complex
+                      industrial, hydrocarbon, and infrastructure projects
+                      across national and international landscapes. His work
+                      spans FEED, EPCM, detailed design, project execution, and
+                      the advancement of Indian Standards in earthquake
+                      engineering.
+                    </p>
+                  </div>
                 </div>
               </Card>
             </Reveal>
@@ -408,100 +423,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {isStructuralMode ? (
-        <Section
-          id="about"
-          eyebrow="About"
-          title="An executive engineering profile built on scale, rigor, and multidisciplinary delivery."
-          description="This section is intentionally revealed only within Structural Mode."
-        >
+      <Section
+        id="projects"
+        eyebrow="Projects"
+        title="Projects by geography."
+        description="A static SVG-driven project map experience with separate views for India and international work."
+      >
+        <div className="grid gap-5 lg:grid-cols-2">
           <Reveal>
-            <Card className="p-6 sm:p-8">
-              <p className="text-base leading-8 text-muted">
-                Dr. Sudip Paul is a seasoned Structural Engineering leader with
-                over 27 years of experience delivering complex industrial,
-                hydrocarbon, and infrastructure projects across national and
-                international landscapes. Currently serving as General Manager
-                at Engineers India Limited, he has led multidisciplinary
-                engineering initiatives spanning FEED, EPCM, detailed design,
-                and project execution.
-              </p>
-              <p className="mt-6 text-base leading-8 text-muted">
-                His expertise includes reinforced concrete and steel structures,
-                offshore platform analysis, blast-resistant design, and
-                structural rehabilitation. He has contributed to projects of
-                strategic importance for organizations such as ISRO and major
-                public-sector enterprises, while also playing an active role in
-                the development of Indian Standards in earthquake engineering.
-              </p>
-            </Card>
+            <ProjectMap
+              title="India Projects"
+              description="A focused view of representative assignments located across India."
+              mapAlt="Stylized map of India"
+              mapSrc="/maps/india.svg"
+              projects={indiaProjects}
+            />
           </Reveal>
-        </Section>
-      ) : null}
 
-      <Section
-        id="academics"
-        eyebrow="Academics"
-        title="A strong academic foundation with consistent distinction."
-        description="Three milestones presented in a clean card grid for easier scanning on phone and desktop."
-      >
-        <div className="grid gap-4 lg:grid-cols-3">
-          {academicsItems.map((item, index) => (
-            <Reveal key={item.degree} delay={`${index * 0.06}s`}>
-              <Card className="h-full p-6">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-surface-soft text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-                  {item.logo}
-                </div>
-                <p className="mt-6 text-xs uppercase tracking-[0.24em] text-accent/80">
-                  {item.year}
-                </p>
-                <h3 className="mt-3 font-heading text-2xl text-text">
-                  {item.degree}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  {item.institute}
-                </p>
-                <div className="mt-6 space-y-3 rounded-[1.35rem] border border-border/70 bg-surface-soft/70 p-4">
-                  <div className="flex items-center justify-between gap-3 text-sm">
-                    <span className="text-muted">Score</span>
-                    <span className="font-semibold text-text">{item.score}</span>
-                  </div>
-                  <div className="h-px bg-border/60" />
-                  <div className="flex items-center justify-between gap-3 text-sm">
-                    <span className="text-muted">Achievement</span>
-                    <span className="text-right font-semibold text-accent">
-                      {item.achievement}
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="affiliations"
-        eyebrow="Affiliations"
-        title="Institutional associations that reflect trust, standards, and strategic engagement."
-        description="A concise view of the organizations and forums connected to Dr. Sudip Paul's professional work."
-      >
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {affiliationItems.map((item, index) => (
-            <Reveal key={item.name} delay={`${index * 0.06}s`}>
-              <Card className="h-full p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-accent/80">
-                  {item.label}
-                </p>
-                <h3 className="mt-3 font-heading text-2xl text-text">
-                  {item.name}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-muted">
-                  {item.description}
-                </p>
-              </Card>
-            </Reveal>
-          ))}
+          <Reveal delay="0.08s">
+            <ProjectMap
+              title="International Projects"
+              description="Representative international work shown on a simplified world map."
+              mapAlt="Stylized world map"
+              mapSrc="/maps/world.svg"
+              projects={internationalProjects}
+            />
+          </Reveal>
         </div>
       </Section>
 
@@ -553,54 +500,43 @@ export default function HomePage() {
       </Section>
 
       <Section
-        id="expertise"
-        eyebrow="Expertise"
-        title="Focused capabilities across industrial, offshore, and rehabilitation work."
-        description="Minimal card-based summaries designed for quick scanning on phone and desktop."
+        id="academics"
+        eyebrow="Academics"
+        title="A strong academic foundation with consistent distinction."
+        description="Institutions now lead the hierarchy, with degrees presented as the supporting line beneath each heading."
       >
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {expertiseItems.map((item, index) => (
-            <Reveal key={item.title} delay={`${index * 0.06}s`}>
+        <div className="grid gap-4 lg:grid-cols-3">
+          {academicsItems.map((item, index) => (
+            <Reveal key={item.institute} delay={`${index * 0.06}s`}>
               <Card className="h-full p-6">
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border border-accent/25 bg-surface-soft/60 text-sm font-semibold text-accent">
-                  0{index + 1}
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-accent/30 bg-surface-soft text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                  {item.logo}
                 </div>
-                <h3 className="font-heading text-2xl text-text">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  {item.description}
+                <p className="mt-6 text-xs uppercase tracking-[0.24em] text-accent/80">
+                  {item.year}
                 </p>
+                <h3 className="mt-3 font-heading text-2xl text-text">
+                  {item.institute}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  {item.degree}
+                </p>
+                <div className="mt-6 space-y-3 rounded-[1.35rem] border border-border/70 bg-surface-soft/70 p-4">
+                  <div className="flex items-center justify-between gap-3 text-sm">
+                    <span className="text-muted">Score</span>
+                    <span className="font-semibold text-text">{item.score}</span>
+                  </div>
+                  <div className="h-px bg-border/60" />
+                  <div className="flex items-center justify-between gap-3 text-sm">
+                    <span className="text-muted">Achievement</span>
+                    <span className="text-right font-semibold text-accent">
+                      {item.achievement}
+                    </span>
+                  </div>
+                </div>
               </Card>
             </Reveal>
           ))}
-        </div>
-      </Section>
-
-      <Section
-        id="projects"
-        eyebrow="Projects"
-        title="Projects by geography."
-        description="A static SVG-driven project map experience with separate views for India and international work."
-      >
-        <div className="grid gap-5 lg:grid-cols-2">
-          <Reveal>
-            <ProjectMap
-              title="India Projects"
-              description="A focused view of representative assignments located across India."
-              mapAlt="Stylized map of India"
-              mapSrc="/maps/india.svg"
-              projects={indiaProjects}
-            />
-          </Reveal>
-
-          <Reveal delay="0.08s">
-            <ProjectMap
-              title="International Projects"
-              description="Representative international work shown on a simplified world map."
-              mapAlt="Stylized world map"
-              mapSrc="/maps/world.svg"
-              projects={internationalProjects}
-            />
-          </Reveal>
         </div>
       </Section>
 
@@ -634,6 +570,54 @@ export default function HomePage() {
                     View Paper
                   </Button>
                 </div>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="affiliations"
+        eyebrow="Affiliations"
+        title="Institutional associations that reflect trust, standards, and strategic engagement."
+        description="A concise view of the organizations and forums connected to Dr. Sudip Paul's professional work."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {affiliationItems.map((item, index) => (
+            <Reveal key={item.name} delay={`${index * 0.06}s`}>
+              <Card className="h-full p-6">
+                <p className="text-xs uppercase tracking-[0.24em] text-accent/80">
+                  {item.label}
+                </p>
+                <h3 className="mt-3 font-heading text-2xl text-text">
+                  {item.name}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  {item.description}
+                </p>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        id="expertise"
+        eyebrow="Expertise"
+        title="Focused capabilities across industrial, offshore, and rehabilitation work."
+        description="A summary layer that closes the narrative after projects, credentials, and publications."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {expertiseItems.map((item, index) => (
+            <Reveal key={item.title} delay={`${index * 0.06}s`}>
+              <Card className="h-full p-6">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border border-accent/25 bg-surface-soft/60 text-sm font-semibold text-accent">
+                  0{index + 1}
+                </div>
+                <h3 className="font-heading text-2xl text-text">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">
+                  {item.description}
+                </p>
               </Card>
             </Reveal>
           ))}

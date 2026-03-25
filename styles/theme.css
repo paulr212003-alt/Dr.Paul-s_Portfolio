@@ -1,5 +1,5 @@
 :root,
-[data-theme="cocoa-elegance"] {
+[data-theme="cocoa-elegance"][data-mode="light"] {
   --color-bg: 245 239 230;
   --color-surface: 255 250 244;
   --color-surface-soft: 238 229 217;
@@ -13,7 +13,49 @@
   --shadow-rgb: 111 78 55;
 }
 
-[data-theme="emerald-executive"] {
+[data-theme="cocoa-elegance"][data-mode="dark"] {
+  --color-bg: 27 20 16;
+  --color-surface: 37 28 23;
+  --color-surface-soft: 48 37 30;
+  --color-accent: 198 169 107;
+  --color-secondary: 148 121 90;
+  --color-text: 244 237 228;
+  --color-muted: 188 175 159;
+  --color-border: 88 69 52;
+  --color-accent-contrast: 27 20 16;
+  --glow-rgb: 198 169 107;
+  --shadow-rgb: 11 8 6;
+}
+
+[data-theme="pearl-royale"][data-mode="light"] {
+  --color-bg: 253 252 248;
+  --color-surface: 247 243 235;
+  --color-surface-soft: 243 238 227;
+  --color-accent: 198 169 107;
+  --color-secondary: 122 112 89;
+  --color-text: 43 43 43;
+  --color-muted: 109 106 100;
+  --color-border: 232 223 201;
+  --color-accent-contrast: 43 43 43;
+  --glow-rgb: 214 194 152;
+  --shadow-rgb: 145 135 114;
+}
+
+[data-theme="pearl-royale"][data-mode="dark"] {
+  --color-bg: 20 19 17;
+  --color-surface: 31 30 27;
+  --color-surface-soft: 41 39 35;
+  --color-accent: 198 169 107;
+  --color-secondary: 155 142 111;
+  --color-text: 245 243 239;
+  --color-muted: 188 181 170;
+  --color-border: 83 76 63;
+  --color-accent-contrast: 20 19 17;
+  --glow-rgb: 216 196 153;
+  --shadow-rgb: 10 10 9;
+}
+
+[data-theme="emerald-executive"][data-mode="light"] {
   --color-bg: 248 250 249;
   --color-surface: 255 255 255;
   --color-surface-soft: 239 245 242;
@@ -27,21 +69,133 @@
   --shadow-rgb: 44 83 67;
 }
 
-[data-theme="ivory-prestige"] {
-  --color-bg: 250 247 242;
-  --color-surface: 255 252 248;
-  --color-surface-soft: 242 236 228;
-  --color-accent: 191 161 129;
-  --color-secondary: 58 47 47;
-  --color-text: 58 47 47;
-  --color-muted: 107 94 89;
-  --color-border: 211 197 180;
-  --color-accent-contrast: 58 47 47;
-  --glow-rgb: 191 161 129;
-  --shadow-rgb: 98 87 77;
+[data-theme="emerald-executive"][data-mode="dark"] {
+  --color-bg: 15 24 21;
+  --color-surface: 24 37 32;
+  --color-surface-soft: 34 49 43;
+  --color-accent: 52 211 153;
+  --color-secondary: 132 194 169;
+  --color-text: 236 245 241;
+  --color-muted: 159 181 171;
+  --color-border: 67 93 81;
+  --color-accent-contrast: 15 24 21;
+  --glow-rgb: 52 211 153;
+  --shadow-rgb: 9 15 13;
 }
 
-[data-theme="slate-minimal"] {
+[data-theme="lavender-silk"][data-mode="light"] {
+  --color-bg: 246 243 255;
+  --color-surface: 251 248 255;
+  --color-surface-soft: 237 232 250;
+  --color-accent: 139 92 246;
+  --color-secondary: 89 67 143;
+  --color-text: 42 42 58;
+  --color-muted: 104 101 128;
+  --color-border: 221 214 246;
+  --color-accent-contrast: 248 245 255;
+  --glow-rgb: 164 130 245;
+  --shadow-rgb: 111 97 164;
+}
+
+[data-theme="lavender-silk"][data-mode="dark"] {
+  --color-bg: 20 15 42;
+  --color-surface: 29 21 57;
+  --color-surface-soft: 39 30 75;
+  --color-accent: 167 139 250;
+  --color-secondary: 206 191 255;
+  --color-text: 240 236 255;
+  --color-muted: 183 175 219;
+  --color-border: 79 64 130;
+  --color-accent-contrast: 20 15 42;
+  --glow-rgb: 167 139 250;
+  --shadow-rgb: 11 9 22;
+}
+
+[data-theme="azure-minimal"][data-mode="light"] {
+  --color-bg: 244 249 255;
+  --color-surface: 255 255 255;
+  --color-surface-soft: 234 242 255;
+  --color-accent: 37 99 235;
+  --color-secondary: 60 106 172;
+  --color-text: 30 41 59;
+  --color-muted: 88 102 126;
+  --color-border: 208 223 242;
+  --color-accent-contrast: 248 250 252;
+  --glow-rgb: 96 145 245;
+  --shadow-rgb: 84 112 160;
+}
+
+[data-theme="azure-minimal"][data-mode="dark"] {
+  --color-bg: 11 28 44;
+  --color-surface: 18 39 61;
+  --color-surface-soft: 25 52 79;
+  --color-accent: 96 165 250;
+  --color-secondary: 191 219 254;
+  --color-text: 229 236 245;
+  --color-muted: 161 181 201;
+  --color-border: 61 91 123;
+  --color-accent-contrast: 11 28 44;
+  --glow-rgb: 96 165 250;
+  --shadow-rgb: 7 18 29;
+}
+
+[data-theme="rose-executive"][data-mode="light"] {
+  --color-bg: 255 245 245;
+  --color-surface: 255 250 250;
+  --color-surface-soft: 252 235 235;
+  --color-accent: 220 38 38;
+  --color-secondary: 164 85 85;
+  --color-text: 58 31 31;
+  --color-muted: 126 88 88;
+  --color-border: 241 214 214;
+  --color-accent-contrast: 255 250 250;
+  --glow-rgb: 234 125 125;
+  --shadow-rgb: 152 100 100;
+}
+
+[data-theme="rose-executive"][data-mode="dark"] {
+  --color-bg: 46 18 24;
+  --color-surface: 63 25 33;
+  --color-surface-soft: 80 34 43;
+  --color-accent: 248 113 113;
+  --color-secondary: 254 202 202;
+  --color-text: 254 235 235;
+  --color-muted: 220 171 171;
+  --color-border: 126 72 72;
+  --color-accent-contrast: 46 18 24;
+  --glow-rgb: 248 113 113;
+  --shadow-rgb: 23 9 12;
+}
+
+[data-theme="sterling-gold"][data-mode="light"] {
+  --color-bg: 250 250 250;
+  --color-surface: 255 255 255;
+  --color-surface-soft: 242 245 248;
+  --color-accent: 201 162 39;
+  --color-secondary: 209 213 219;
+  --color-text: 31 41 55;
+  --color-muted: 94 103 114;
+  --color-border: 222 226 231;
+  --color-accent-contrast: 31 41 55;
+  --glow-rgb: 213 185 88;
+  --shadow-rgb: 148 163 184;
+}
+
+[data-theme="sterling-gold"][data-mode="dark"] {
+  --color-bg: 17 24 39;
+  --color-surface: 30 41 59;
+  --color-surface-soft: 41 55 75;
+  --color-accent: 214 179 75;
+  --color-secondary: 148 163 184;
+  --color-text: 241 245 249;
+  --color-muted: 189 197 208;
+  --color-border: 71 85 105;
+  --color-accent-contrast: 17 24 39;
+  --glow-rgb: 214 179 75;
+  --shadow-rgb: 10 14 22;
+}
+
+[data-theme="slate-minimal"][data-mode="light"] {
   --color-bg: 244 244 245;
   --color-surface: 255 255 255;
   --color-surface-soft: 233 236 240;
@@ -53,6 +207,20 @@
   --color-accent-contrast: 248 250 252;
   --glow-rgb: 100 116 139;
   --shadow-rgb: 99 102 110;
+}
+
+[data-theme="slate-minimal"][data-mode="dark"] {
+  --color-bg: 17 24 39;
+  --color-surface: 26 33 48;
+  --color-surface-soft: 35 43 61;
+  --color-accent: 148 163 184;
+  --color-secondary: 203 213 225;
+  --color-text: 243 244 246;
+  --color-muted: 181 188 200;
+  --color-border: 71 85 105;
+  --color-accent-contrast: 17 24 39;
+  --glow-rgb: 148 163 184;
+  --shadow-rgb: 10 14 21;
 }
 
 body {
@@ -146,7 +314,7 @@ body {
 .theme-select {
   border-radius: 999px;
   border: 1px solid rgb(var(--color-border) / 0.9);
-  background: rgb(var(--color-surface) / 0.96);
+  background: rgb(var(--color-surface) / 0.98);
   color: rgb(var(--color-text));
   box-shadow: 0 10px 26px rgb(var(--shadow-rgb) / 0.06);
 }

@@ -2,15 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
+import ThemeModeSwitch from "@/components/ThemeModeSwitch";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const navItems = [
-  { label: "Academics", href: "#academics" },
-  { label: "Affiliations", href: "#affiliations" },
-  { label: "Experience", href: "#experience" },
-  { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Academics", href: "#academics" },
   { label: "Publications", href: "#publications" },
+  { label: "Affiliations", href: "#affiliations" },
+  { label: "Expertise", href: "#expertise" },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -29,7 +30,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-[80] px-4 py-4 sm:px-6 lg:px-8">
       <nav
-        className={`mx-auto flex w-full max-w-7xl items-center justify-between rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:px-6 ${
+        className={`mx-auto flex w-full max-w-7xl flex-wrap items-center gap-3 rounded-[1.65rem] border px-4 py-3 backdrop-blur-xl transition duration-300 sm:flex-nowrap sm:px-6 ${
           scrolled
             ? "border-border/80 bg-surface/94 shadow-soft"
             : "border-border/60 bg-surface/86"
@@ -58,7 +59,13 @@ export default function Navbar() {
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <ThemeSwitcher />
-          <Button href="#contact" variant="secondary" size="sm">
+          <ThemeModeSwitch />
+          <Button
+            href="#contact"
+            variant="secondary"
+            size="sm"
+            className="hidden sm:inline-flex"
+          >
             Contact
           </Button>
         </div>

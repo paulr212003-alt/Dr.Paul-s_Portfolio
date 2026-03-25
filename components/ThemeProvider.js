@@ -3,9 +3,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
   DEFAULT_THEME,
+  DEFAULT_THEME_MODE,
   THEMES,
+  THEME_MODE_STORAGE_KEY,
   THEME_STORAGE_KEY,
-  isValidTheme
+  isValidTheme,
+  isValidThemeMode
 } from "@/lib/themes";
 
 const ThemeContext = createContext(null);
@@ -23,30 +26,51 @@ export function ThemeProvider({ children }) {
     return DEFAULT_THEME;
   });
 
+  const [mode, setModeState] = useState(() => {
+    if (typeof document !== "undefined") {
+      const currentMode = document.documentElement.dataset.mode;
+
+      if (isValidThemeMode(currentMode)) {
+        return currentMode;
+      }
+    }
+
+    return DEFAULT_THEME_MODE;
+  });
+
   useEffect(() => {
     try {
       const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+      const storedMode = window.localStorage.getItem(THEME_MODE_STORAGE_KEY);
 
       if (isValidTheme(storedTheme)) {
         setThemeState(storedTheme);
       }
+
+      if (isValidThemeMode(storedMode)) {
+        setModeState(storedMode);
+      }
     } catch (error) {
-      // Ignore localStorage issues and continue with the default theme.
+      // Ignore localStorage issues and continue with defaults.
     }
   }, []);
 
   useEffect(() => {
     const activeTheme = THEMES.find((item) => item.id === theme) ?? THEMES[0];
+    const activeMode = isValidThemeMode(mode) ? mode : DEFAULT_THEME_MODE;
 
     document.documentElement.dataset.theme = activeTheme.id;
-    document.documentElement.style.colorScheme = activeTheme.scheme;
+    document.documentElement.dataset.mode = activeMode;
+    document.documentElement.style.colorScheme =
+      activeMode === "dark" ? "dark" : "light";
 
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, activeTheme.id);
+      window.localStorage.setItem(THEME_MODE_STORAGE_KEY, activeMode);
     } catch (error) {
       // Ignore write failures so the UI remains functional.
     }
-  }, [theme]);
+  }, [mode, theme]);
 
   const setTheme = (value) => {
     if (isValidTheme(value)) {
@@ -54,15 +78,30 @@ export function ThemeProvider({ children }) {
     }
   };
 
+  const setMode = (value) => {
+    if (isValidThemeMode(value)) {
+      setModeState(value);
+    }
+  };
+
+  const toggleMode = () => {
+    setModeState((currentMode) => (currentMode === "dark" ? "light" : "dark"));
+  };
+
   const activeTheme = THEMES.find((item) => item.id === theme) ?? THEMES[0];
+  const isDarkMode = mode === "dark";
 
   return (
     <ThemeContext.Provider
       value={{
         activeTheme,
+        isDarkMode,
+        mode,
+        setMode,
         setTheme,
         theme,
-        themes: THEMES
+        themes: THEMES,
+        toggleMode
       }}
     >
       {children}

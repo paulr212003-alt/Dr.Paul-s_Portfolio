@@ -29,20 +29,19 @@ export default function ThemeSwitcher() {
       <button
         type="button"
         onClick={() => setIsOpen((current) => !current)}
-        className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-text shadow-soft transition duration-300 hover:border-accent/50 hover:shadow-glow"
+        className="inline-flex min-w-[8.5rem] items-center justify-between gap-2 rounded-full border border-border bg-surface px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-text shadow-soft transition duration-300 hover:border-accent/50 hover:shadow-glow"
         aria-expanded={isOpen}
         aria-haspopup="menu"
       >
-        <span className="hidden sm:inline">Theme</span>
-        <span className="sm:hidden">{activeTheme.shortLabel}</span>
-        <span className="hidden max-w-[8rem] truncate text-accent sm:inline">
+        <span className="hidden text-muted sm:inline">Theme</span>
+        <span className="max-w-[7rem] truncate text-accent">
           {activeTheme.shortLabel}
         </span>
         <span className="text-[10px] text-muted">{isOpen ? "^" : "v"}</span>
       </button>
 
       {isOpen ? (
-        <div className="absolute right-0 top-full mt-3 w-[18rem] rounded-[1.35rem] border border-border bg-surface p-2 shadow-soft">
+        <div className="absolute right-0 top-full mt-3 max-h-[65vh] w-[17rem] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-[1.35rem] border border-border bg-surface p-2 shadow-soft">
           {themes.map((item) => (
             <button
               key={item.id}
